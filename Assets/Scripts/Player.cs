@@ -62,7 +62,7 @@ public class Player : MonoBehaviour
             GameObject newTBear = Instantiate(tBear,
                                               transform.position,
                                               tBear.transform.rotation);
-
+            
             // throw towards mouse position
             Vector3 sp = Camera.main.WorldToScreenPoint(transform.position);
             Vector3 dir = (Input.mousePosition - sp).normalized;
