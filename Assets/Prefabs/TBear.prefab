@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6650071527314307364}
   m_Layer: 9
   m_Name: TBear
-  m_TagString: Untagged
+  m_TagString: TBear
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,18 +115,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.07403731}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 2, y: 2}
     newSize: {x: 0.32, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.32, y: 0.32}
+  m_Size: {x: 1, y: 1.1480746}
   m_EdgeRadius: 0
 --- !u!50 &6279821115971304014
 Rigidbody2D:
@@ -163,3 +163,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: 0.5
   colDelay: 0.5
+  throwPower: 500

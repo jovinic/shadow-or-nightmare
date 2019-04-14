@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -91,7 +91,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -101,7 +101,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b87797d0d2977284a84ebebf5cdd4d9f
+      spriteID: c23aff23ec0d01a4290c5ff46fd859a3
       vertices: []
       indices: 
       edges: []
@@ -110,8 +110,8 @@ TextureImporter:
       name: tbear-sheet_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
+        x: 0
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -121,7 +121,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c4f977457a8e874a810ebc887d59f20
+      spriteID: 42af445b190bea049b854bd883082155
       vertices: []
       indices: 
       edges: []
@@ -130,7 +130,7 @@ TextureImporter:
       name: tbear-sheet_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 0
         y: 0
         width: 32
         height: 32
@@ -141,7 +141,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e2fee21784278c4a8268bb98740e05e
+      spriteID: 83dcc4cbf56c80541b855857fd320cd8
       vertices: []
       indices: 
       edges: []
