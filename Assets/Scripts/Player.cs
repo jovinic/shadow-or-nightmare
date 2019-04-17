@@ -48,10 +48,10 @@ public class Player : MonoBehaviour
         else
         {
             animator.SetBool("Run", false);
-        }  
+        }
 
         // jump
-        if(!grounded && myBody.velocity.y == 0) 
+        if(!grounded && myBody.velocity.y == 0)
         {
             grounded = true;
         }
@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
         {
             myBody.AddForce(transform.up * jumpForce);
             grounded = false;
-        }      
+        }
     }
 
     void Throw()
@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             if (!canThrow)
-                return;                
+                return;
 
             canThrow = false;
             animator.SetTrigger("Throw");
