@@ -62,7 +62,7 @@ public class TBear : MonoBehaviour
 
     void destroyTBear()
     {
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().canThrow = true;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerPhysics>().canThrow = true;
         Destroy(gameObject);
     }
 
