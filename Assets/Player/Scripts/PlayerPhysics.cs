@@ -4,77 +4,123 @@ using UnityEngine;
 
 public class PlayerPhysics : MonoBehaviour
 {
-    private Rigidbody2D myBody;
-    private Animator animator;
-    public float speed;
-    private Vector3 originalScale;
-    public GameObject tBear;
-    public bool canThrow;
-    public bool grounded = true;
-    public float jumpForce;
+    //private Rigidbody2D myBody;
+    //
+    //public float speed;
+    //private Vector3 originalScale;
+    //
+    
+    //public bool grounded = true;
+    //public float jumpForce;
 
-    void Start()
+    public GameObject tBear;
+
+    public float minGroundNormalY = .65f;
+    public float gravityModifier = 1f;
+    public bool canThrow;
+
+    protected Vector2 targetVelocity;
+    protected bool grounded;
+    protected Vector2 groundNormal;
+    protected Rigidbody2D myBody;
+    protected Vector2 velocity;
+    protected ContactFilter2D contactFilter;
+    protected RaycastHit2D[] hitBuffer = new RaycastHit2D[16];
+    protected List<RaycastHit2D> hitBufferList = new List<RaycastHit2D> (16);
+
+    protected const float minMoveDistance = 0.001f;
+    protected const float shellRadius = 0.01f;
+
+    void OnEnable()
     {
-        myBody = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        originalScale = transform.localScale;
+        myBody = GetComponent<Rigidbody2D> ();
+    }
+
+    void Start () 
+    {
         canThrow = true;
+        
+        contactFilter.useTriggers = false;
+        contactFilter.SetLayerMask (Physics2D.GetLayerCollisionMask (gameObject.layer));
+        contactFilter.useLayerMask = true;
+    }
+
+    void Update () 
+    {
+        targetVelocity = Vector2.zero;
+        ComputeVelocity ();         
+
+        Throw();
+    }
+
+    protected virtual void ComputeVelocity()
+    {
+    
+    }
+
+    protected virtual void Throw()
+    {
+    
     }
 
     void FixedUpdate()
     {
-        Movement();
+        velocity += gravityModifier * Physics2D.gravity * Time.deltaTime;
+        velocity.x = targetVelocity.x;
+
+        grounded = false;
+
+        Vector2 deltaPosition = velocity * Time.deltaTime;
+
+        Vector2 moveAlongGround = new Vector2 (groundNormal.y, -groundNormal.x);
+
+        Vector2 move = moveAlongGround * deltaPosition.x;
+
+        Movement (move, false);
+
+        move = Vector2.up * deltaPosition.y;
+
+        Movement (move, true);        
     }
 
-    void Update()
+    void Movement(Vector2 move, bool yMovement)
     {
-        Throw();
-    }
+        float distance = move.magnitude;
 
-    void Movement()
-    {
-        // run
-        float h = Input.GetAxisRaw("Horizontal");
-        if (h != 0)
+        if (distance > minMoveDistance) 
         {
-            myBody.velocity = new Vector2(speed * h, myBody.velocity.y);
+            int count = myBody.Cast (move, contactFilter, hitBuffer, distance + shellRadius);
+            hitBufferList.Clear ();
+            for (int i = 0; i < count; i++) {
+                hitBufferList.Add (hitBuffer [i]);
+            }
 
-            Vector3 scale = transform.localScale;
-            scale.x = h > 0 ? originalScale.x : -originalScale.x;
-            transform.localScale = scale;
+            for (int i = 0; i < hitBufferList.Count; i++) 
+            {
+                Vector2 currentNormal = hitBufferList [i].normal;
+                if (currentNormal.y > minGroundNormalY) 
+                {
+                    grounded = true;
+                    if (yMovement) 
+                    {
+                        groundNormal = currentNormal;
+                        currentNormal.x = 0;
+                    }
+                }
 
-            animator.SetBool("Run", true);
+                float projection = Vector2.Dot (velocity, currentNormal);
+                if (projection < 0) 
+                {
+                    velocity = velocity - projection * currentNormal;
+                }
+
+                float modifiedDistance = hitBufferList [i].distance - shellRadius;
+                distance = modifiedDistance < distance ? modifiedDistance : distance;
+            }
+
+
         }
-        else
-        {
-            animator.SetBool("Run", false);
-        }
 
-        // jump
-        if(!grounded && myBody.velocity.y == 0)
-        {
-            grounded = true;
-        }
-        if (Input.GetKeyDown (KeyCode.Space) && grounded == true)
-        {
-            myBody.AddForce(transform.up * jumpForce);
-            grounded = false;
-        }
-    }
-
-    void Throw()
-    {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            if (!canThrow)
-                return;
-
-            canThrow = false;
-            animator.SetTrigger("Throw");
-
-            GameObject newTBear = Instantiate(tBear,
-                                              transform.position,
-                                              tBear.transform.rotation);
-        }
+        myBody.position = myBody.position + move.normalized * distance;
     }
 }

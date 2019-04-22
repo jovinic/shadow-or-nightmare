@@ -73,7 +73,7 @@ public class TBear : MonoBehaviour
         //Vector3 pos = contact.point;
         //Instantiate(explosionPrefab, pos, rot);
         //Destroy(gameObject);
-        destroyTBear();
-        transform.position = Vector3.Reflect(transform.position, Vector3.right);
+        //destroyTBear();
+        //transform.position = Vector3.Reflect(transform.position, Vector3.right);
     }
 }
