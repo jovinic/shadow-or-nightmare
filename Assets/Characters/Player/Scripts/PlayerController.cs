@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PlayerController : PlayerPhysics 
 {
-
-    public float maxSpeed = 7;
+    public float speedMultiplier = 7;
     public float jumpTakeOffSpeed = 7;        
 
     private SpriteRenderer spriteRenderer;
@@ -66,8 +65,8 @@ public class PlayerController : PlayerPhysics
         }
 
         animator.SetBool ("grounded", grounded);
-        animator.SetFloat ("velocityX", Mathf.Abs (velocity.x) / maxSpeed);
+        animator.SetFloat ("velocityX", Mathf.Abs (velocity.x) / speedMultiplier);
 
-        targetVelocity = move * maxSpeed;
+        targetVelocity = move * speedMultiplier;
     }
 }

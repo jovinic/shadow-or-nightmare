@@ -4,19 +4,11 @@ using UnityEngine;
 
 public class PlayerPhysics : MonoBehaviour
 {
-    //private Rigidbody2D myBody;
-    //
-    //public float speed;
-    //private Vector3 originalScale;
-    //
-    
-    //public bool grounded = true;
-    //public float jumpForce;
-
     public GameObject tBear;
 
     public float minGroundNormalY = .65f;
     public float gravityModifier = 1f;
+    public float maxSpeed = 7;
     public bool canThrow;
 
     protected Vector2 targetVelocity;
@@ -81,6 +73,12 @@ public class PlayerPhysics : MonoBehaviour
         move = Vector2.up * deltaPosition.y;
 
         Movement (move, true);        
+
+        // limits speed
+        if(velocity.magnitude > maxSpeed)
+        {
+            velocity = velocity.normalized * maxSpeed;
+        }
     }
 
     void Movement(Vector2 move, bool yMovement)
@@ -117,10 +115,8 @@ public class PlayerPhysics : MonoBehaviour
                 float modifiedDistance = hitBufferList [i].distance - shellRadius;
                 distance = modifiedDistance < distance ? modifiedDistance : distance;
             }
-
-
         }
-
+        
         myBody.position = myBody.position + move.normalized * distance;
     }
 }
