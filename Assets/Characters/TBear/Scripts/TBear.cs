@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class TBear : MonoBehaviour
 {
-    public float timer;
+    public float initialTimer;
     public float colDelay;
-
     public float throwPower;
+    
+    private Rigidbody2D bearBody;
+    private Vector3 mouseDir;  
+    private Vector3 velocity;
+    private float currentTimer;
 
     void Start()
     {        
+        bearBody = GetComponent<Rigidbody2D>();
+        currentTimer = initialTimer;
         Throw();
     }
 
@@ -18,8 +24,9 @@ public class TBear : MonoBehaviour
     {
         // throw towards mouse position
         Vector3 sp = Camera.main.WorldToScreenPoint(transform.position);
-        Vector3 dir = (Input.mousePosition - sp).normalized;
-        GetComponent<Rigidbody2D>().AddForce(dir * throwPower);
+        mouseDir = (Input.mousePosition - sp).normalized;
+        velocity = mouseDir * throwPower;
+        bearBody.AddForce(velocity);
         
         // set scale for object position (todo)
         Vector3 moveDirection = Vector3.right;
@@ -44,7 +51,7 @@ public class TBear : MonoBehaviour
 
     void Update()
     {
-        timer -= Time.deltaTime;
+        currentTimer -= Time.deltaTime;
         
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
@@ -54,7 +61,7 @@ public class TBear : MonoBehaviour
             return;
         }
 
-        if(timer <= 0)
+        if(currentTimer <= 0)
         {
             destroyTBear();
         }
@@ -66,14 +73,24 @@ public class TBear : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        //ContactPoint contact = collision.contacts[0];
-        //Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
-        //Vector3 pos = contact.point;
-        //Instantiate(explosionPrefab, pos, rot);
-        //Destroy(gameObject);
-        //destroyTBear();
-        //transform.position = Vector3.Reflect(transform.position, Vector3.right);
+        bearBody.velocity = Vector2.zero;
+
+        //obtain the surface normal for a point on a collider 
+        //and reflects a vector off the plane defined by a normal.        
+        Vector2 CollisionNormal = collision.contacts[0].normal;        
+        velocity = Vector3.Reflect(velocity, CollisionNormal);
+
+        //apply new direction adding force
+        velocity.Normalize();
+        bearBody.AddForce(velocity * throwPower);
+
+        // fixes direction
+        float targetAngle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg - 90;
+        transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.Euler (0, 0, targetAngle), throwPower * Time.deltaTime);
+
+        // resets timer
+        currentTimer = initialTimer * 0.75f;       
     }
 }
