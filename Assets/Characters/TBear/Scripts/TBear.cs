@@ -11,11 +11,13 @@ public class TBear : MonoBehaviour
     private Rigidbody2D bearBody;
     private Vector3 mouseDir;  
     private Vector3 velocity;
+    private int availableBounces;
     private float currentTimer;
 
     void Start()
     {        
         bearBody = GetComponent<Rigidbody2D>();
+        availableBounces = 1;
         currentTimer = initialTimer;
         Throw();
     }
@@ -75,6 +77,11 @@ public class TBear : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        if(availableBounces == 0)
+        {
+            return;
+        }
+        
         bearBody.velocity = Vector2.zero;
 
         //obtain the surface normal for a point on a collider 
@@ -91,6 +98,7 @@ public class TBear : MonoBehaviour
         transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.Euler (0, 0, targetAngle), throwPower * Time.deltaTime);
 
         // resets timer
-        currentTimer = initialTimer * 0.75f;       
+        currentTimer = initialTimer * 0.6f;
+        availableBounces--;  
     }
 }
