@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerPhysics : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PlayerPhysics : MonoBehaviour
     public float gravityModifier = 1f;
     public float maxSpeed = 7;
     public bool canThrow;
+    protected bool canMove;
 
     protected Vector2 targetVelocity;
     protected bool grounded;
@@ -30,8 +32,10 @@ public class PlayerPhysics : MonoBehaviour
 
     void Start () 
     {
-        canThrow = true;
-        
+        Scene scene = SceneManager.GetActiveScene();
+        canThrow = scene.name.Contains("001") ? false : true;     
+
+        canMove = true;        
         contactFilter.useTriggers = false;
         contactFilter.SetLayerMask (Physics2D.GetLayerCollisionMask (gameObject.layer));
         contactFilter.useLayerMask = true;
@@ -83,6 +87,11 @@ public class PlayerPhysics : MonoBehaviour
 
     void Movement(Vector2 move, bool yMovement)
     {
+        if(!canMove)
+        {
+            return;
+        }
+        
         float distance = move.magnitude;
 
         if (distance > minMoveDistance) 

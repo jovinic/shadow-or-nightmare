@@ -17,9 +17,9 @@ public class PlayerController : PlayerPhysics
     }   
 
     protected override void Throw()
-    {
+    {        
         if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
+        {            
             if (!canThrow)
                 return;
 
@@ -35,6 +35,11 @@ public class PlayerController : PlayerPhysics
 
     protected override void ComputeVelocity()
     {
+        if(!canMove)
+        {
+            return;
+        }
+        
         Vector2 move = Vector2.zero;
 
         move.x = Input.GetAxis ("Horizontal");
