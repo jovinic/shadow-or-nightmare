@@ -63,7 +63,7 @@ public class TBear : MonoBehaviour
             return;
         }
 
-        if(currentTimer <= 0)
+        if (currentTimer <= 0)
         {
             destroyTBear();
         }
@@ -71,13 +71,13 @@ public class TBear : MonoBehaviour
 
     void destroyTBear()
     {
-        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerPhysics>().canThrow = true;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().canThrow = true;
         Destroy(gameObject);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if(availableBounces == 0)
+        if (availableBounces == 0)
         {
             return;
         }
