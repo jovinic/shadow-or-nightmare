@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
@@ -27,7 +28,6 @@ public class Movement : MonoBehaviour
     public bool isDashing;
 
     [Space]
-
     private bool groundTouch;
     private bool hasDashed;
 
@@ -40,21 +40,29 @@ public class Movement : MonoBehaviour
     public ParticleSystem wallJumpParticle;
     public ParticleSystem slideParticle;
 
-    // Start is called before the first frame update
+    [Space]
+    [Header("TBear Control")]
+    public GameObject tBear;
+    public bool canThrow;
+
+    private Boolean sceneLock;
+
     void Start()
     {
         coll = GetComponent<Collision>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<AnimationScript>();
+
+        Scene scene = SceneManager.GetActiveScene();
+        sceneLock = scene.name.Contains("001") ? true : false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
-        float xRaw = Input.GetAxisRaw("Horizontal");
-        float yRaw = Input.GetAxisRaw("Vertical");
+        //float xRaw = Input.GetAxisRaw("Horizontal");
+        //float yRaw = Input.GetAxisRaw("Vertical");
         Vector2 dir = new Vector2(x, y);
 
         Walk(dir);
@@ -117,10 +125,16 @@ public class Movement : MonoBehaviour
                 WallJump();
         }
 
+        /*
         if (Input.GetButtonDown("Fire1") && !hasDashed)
         {
             if(xRaw != 0 || yRaw != 0)
                 Dash(xRaw, yRaw);
+        }
+        */
+        if (Input.GetButtonDown("Fire1") && canThrow && !sceneLock)
+        {
+            TBearThrow();
         }
 
         if (coll.onGround && !groundTouch)
@@ -161,6 +175,17 @@ public class Movement : MonoBehaviour
         side = anim.sr.flipX ? -1 : 1;
 
         jumpParticle.Play();
+    }
+
+    private void TBearThrow()
+    {
+        canThrow = false;
+        anim.SetTrigger("Throw");
+
+        GameObject newTBear = Instantiate(tBear,
+                                          transform.position,
+                                          tBear.transform.rotation) 
+                              as GameObject;
     }
 
     private void Dash(float x, float y)
