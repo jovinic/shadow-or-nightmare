@@ -14,12 +14,46 @@ public class TBear : MonoBehaviour
     private int availableBounces;
     private float currentTimer;
 
+    private int playerLevel;
+
     void Start()
     {        
         bearBody = GetComponent<Rigidbody2D>();
-        availableBounces = 1;
         currentTimer = initialTimer;
+
+        playerLevel = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().playerLevel;
+        availableBounces = playerLevel >= 2 ? 1 : 0;
+        
         Throw();
+    }
+
+    void Update()
+    {
+        currentTimer -= Time.deltaTime;
+
+        if(availableBounces == 0)
+        {
+            //bearBody.velocity = new Vector2(bearBody.velocity.x * 0.9f, bearBody.velocity.y * 0.9f);
+        }
+        
+        if (Input.GetButtonDown("Fire1"))
+        {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>().position = gameObject.GetComponent<Transform>().position;
+            
+            destroyTBear(true);
+            return;
+        }
+
+        if (Input.GetButtonDown("Fire2"))
+        {
+            destroyTBear(true);
+            return;
+        }
+
+        // if (currentTimer <= 0)
+        // {
+        //     destroyTBear();
+        // }
     }
 
     public void Throw()
@@ -51,28 +85,14 @@ public class TBear : MonoBehaviour
         }
     }
 
-    void Update()
+    void destroyTBear(bool destructor)
     {
-        currentTimer -= Time.deltaTime;
-        
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if(destructor)
         {
-            GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>().position = gameObject.GetComponent<Transform>().position;
-            
-            destroyTBear();
-            return;
+            Destroy(gameObject);
         }
 
-        if (currentTimer <= 0)
-        {
-            destroyTBear();
-        }
-    }
-
-    void destroyTBear()
-    {
         GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().canThrow = true;
-        Destroy(gameObject);
     }
 
     void OnCollisionEnter2D(Collision2D collision)

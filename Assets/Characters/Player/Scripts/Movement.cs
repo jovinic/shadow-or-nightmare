@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
@@ -13,6 +12,7 @@ public class Movement : MonoBehaviour
 
     [Space]
     [Header("Stats")]
+    public int playerLevel = 0;
     public float speed = 10;
     public float jumpForce = 50;
     public float slideSpeed = 5;
@@ -45,16 +45,11 @@ public class Movement : MonoBehaviour
     public GameObject tBear;
     public bool canThrow;
 
-    private Boolean sceneLock;
-
     void Start()
     {
         coll = GetComponent<Collision>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<AnimationScript>();
-
-        Scene scene = SceneManager.GetActiveScene();
-        sceneLock = scene.name.Contains("001") ? true : false;
     }
 
     void Update()
@@ -132,9 +127,14 @@ public class Movement : MonoBehaviour
                 Dash(xRaw, yRaw);
         }
         */
-        if (Input.GetButtonDown("Fire1") && canThrow && !sceneLock)
+        if (Input.GetButtonDown("Fire1") && canThrow && (playerLevel > 0))
         {
             TBearThrow();
+        }
+
+        if (Input.GetButtonDown("Fire2") && !canThrow)
+        {
+            TBearRetrieve();
         }
 
         if (coll.onGround && !groundTouch)
@@ -180,12 +180,17 @@ public class Movement : MonoBehaviour
     private void TBearThrow()
     {
         canThrow = false;
-        anim.SetTrigger("Throw");
+        //anim.SetTrigger("Throw");
 
         GameObject newTBear = Instantiate(tBear,
                                           transform.position,
                                           tBear.transform.rotation) 
                               as GameObject;
+    }
+
+    private void TBearRetrieve()
+    {
+        canThrow = true;
     }
 
     private void Dash(float x, float y)
