@@ -10,8 +10,7 @@ public class Teleporter : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            other.transform.rotation = destination.transform.rotation;
-            other.transform.position = destination.transform.position;
+            other.gameObject.GetComponent<Movement>().TeleportPlayer(destination);
         }
     }
 }

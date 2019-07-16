@@ -5,11 +5,12 @@ using UnityEngine;
 public class TBear : MonoBehaviour
 {
     public float initialTimer;
+    private float initialGravity;
     public float colDelay;
     public float throwPower;
-    
+
     private Rigidbody2D bearBody;
-    private Vector3 mouseDir;  
+    private Vector3 mouseDir;
     private Vector3 velocity;
     private int availableBounces;
     private float currentTimer;
@@ -17,13 +18,14 @@ public class TBear : MonoBehaviour
     private int playerLevel;
 
     void Start()
-    {        
+    {
         bearBody = GetComponent<Rigidbody2D>();
         currentTimer = initialTimer;
+        initialGravity = bearBody.gravityScale;
 
         playerLevel = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().playerLevel;
-        availableBounces = playerLevel >= 2 ? 1 : 0;
-        
+        availableBounces = playerLevel > 1 ? 1 : 0;
+
         Throw();
     }
 
@@ -31,15 +33,16 @@ public class TBear : MonoBehaviour
     {
         currentTimer -= Time.deltaTime;
 
-        if(availableBounces == 0)
+        if(currentTimer <= 0)
         {
-            //bearBody.velocity = new Vector2(bearBody.velocity.x * 0.9f, bearBody.velocity.y * 0.9f);
+            bearBody.velocity = new Vector2(bearBody.velocity.x - (bearBody.velocity.x * 0.01f), bearBody.velocity.y);
+            bearBody.gravityScale = initialGravity * 2f;
         }
-        
+
         if (Input.GetButtonDown("Fire1"))
         {
             GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>().position = gameObject.GetComponent<Transform>().position;
-            
+
             destroyTBear(true);
             return;
         }
@@ -49,11 +52,6 @@ public class TBear : MonoBehaviour
             destroyTBear(true);
             return;
         }
-
-        // if (currentTimer <= 0)
-        // {
-        //     destroyTBear();
-        // }
     }
 
     public void Throw()
@@ -63,7 +61,7 @@ public class TBear : MonoBehaviour
         mouseDir = (Input.mousePosition - sp).normalized;
         velocity = mouseDir * throwPower;
         bearBody.AddForce(velocity);
-        
+
         // set scale for object position (todo)
         Vector3 moveDirection = Vector3.right;
         Vector3 moveToward;
@@ -101,12 +99,12 @@ public class TBear : MonoBehaviour
         {
             return;
         }
-        
+
         bearBody.velocity = Vector2.zero;
 
-        //obtain the surface normal for a point on a collider 
-        //and reflects a vector off the plane defined by a normal.        
-        Vector2 CollisionNormal = collision.contacts[0].normal;        
+        //obtain the surface normal for a point on a collider
+        //and reflects a vector off the plane defined by a normal.
+        Vector2 CollisionNormal = collision.contacts[0].normal;
         velocity = Vector3.Reflect(velocity, CollisionNormal);
 
         //apply new direction adding force
@@ -119,6 +117,6 @@ public class TBear : MonoBehaviour
 
         // resets timer
         currentTimer = initialTimer * 0.6f;
-        availableBounces--;  
+        availableBounces--;
     }
 }

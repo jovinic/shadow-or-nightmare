@@ -14,7 +14,7 @@ public class PlayerSpawner : MonoBehaviour
 
         GameObject newPlayer = Instantiate(player,
                                            transform.position,
-                                           player.transform.rotation) 
+                                           player.transform.rotation)
                                as GameObject;
     }
 }

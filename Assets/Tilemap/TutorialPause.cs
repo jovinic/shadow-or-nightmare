@@ -6,7 +6,7 @@ public class TutorialPause : MonoBehaviour
 {
     private bool playerBlocked;
     private RigidbodyConstraints2D playerConstraints;
-    
+
     void Start()
     {
         playerBlocked = false;
@@ -15,11 +15,8 @@ public class TutorialPause : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag == "Player" && !playerBlocked)
-        {            
-            other.gameObject.GetComponent<Movement>().playerLevel = 1;
-            other.gameObject.GetComponent<Movement>().canMove = false;
-            playerConstraints = other.gameObject.GetComponent<Rigidbody2D>().constraints;
-            other.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+        {
+            other.gameObject.GetComponent<Movement>().FreezePlayer(true);
 
             playerBlocked = true;
         }
@@ -28,9 +25,8 @@ public class TutorialPause : MonoBehaviour
     void OnTriggerExit2D(Collider2D other)
     {
         if(other.tag == "Player" && playerBlocked)
-        {            
-            other.gameObject.GetComponent<Movement>().canMove = true;
-            other.gameObject.GetComponent<Rigidbody2D>().constraints = playerConstraints;
+        {
+            other.gameObject.GetComponent<Movement>().UnfreezePlayer();
         }
     }
 }

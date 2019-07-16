@@ -8,6 +8,7 @@ public class Movement : MonoBehaviour
     private Collision coll;
     [HideInInspector]
     public Rigidbody2D rb;
+    private RigidbodyConstraints2D playerConstraints;
     private AnimationScript anim;
 
     [Space]
@@ -49,6 +50,7 @@ public class Movement : MonoBehaviour
     {
         coll = GetComponent<Collision>();
         rb = GetComponent<Rigidbody2D>();
+        playerConstraints = rb.constraints;
         anim = GetComponentInChildren<AnimationScript>();
     }
 
@@ -56,8 +58,6 @@ public class Movement : MonoBehaviour
     {
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
-        //float xRaw = Input.GetAxisRaw("Horizontal");
-        //float yRaw = Input.GetAxisRaw("Vertical");
         Vector2 dir = new Vector2(x, y);
 
         Walk(dir);
@@ -82,7 +82,7 @@ public class Movement : MonoBehaviour
             wallJumped = false;
             GetComponent<BetterJumping>().enabled = true;
         }
-        
+
         if (wallGrab && !isDashing)
         {
             rb.gravityScale = 0;
@@ -167,6 +167,46 @@ public class Movement : MonoBehaviour
 
     }
 
+    private void TBearThrow()
+    {
+        canThrow = false;
+        //anim.SetTrigger("Throw");
+
+        GameObject newTBear = Instantiate(tBear,
+                                          transform.position,
+                                          tBear.transform.rotation)
+                              as GameObject;
+    }
+
+    private void TBearRetrieve()
+    {
+        canThrow = true;
+    }
+
+    public void TeleportPlayer(Transform destination)
+    {
+        transform.rotation = destination.rotation;
+        transform.position = destination.position;
+    }
+
+    public void FreezePlayer(bool tutorialPause = false)
+    {
+        if (tutorialPause)
+        {
+            playerLevel = 1;
+        }
+
+        canMove = false;
+        playerConstraints = rb.constraints;
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+    }
+
+    public void UnfreezePlayer()
+    {
+        canMove = true;
+        rb.constraints = playerConstraints;
+    }
+
     void GroundTouch()
     {
         hasDashed = false;
@@ -177,28 +217,8 @@ public class Movement : MonoBehaviour
         jumpParticle.Play();
     }
 
-    private void TBearThrow()
-    {
-        canThrow = false;
-        //anim.SetTrigger("Throw");
-
-        GameObject newTBear = Instantiate(tBear,
-                                          transform.position,
-                                          tBear.transform.rotation) 
-                              as GameObject;
-    }
-
-    private void TBearRetrieve()
-    {
-        canThrow = true;
-    }
-
     private void Dash(float x, float y)
     {
-        //Camera.main.transform.DOComplete();
-        //Camera.main.transform.DOShakePosition(.2f, .5f, 14, 90, false, true);
-        //FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
-
         hasDashed = true;
 
         anim.SetTrigger("dash");
@@ -212,9 +232,7 @@ public class Movement : MonoBehaviour
 
     IEnumerator DashWait()
     {
-        //FindObjectOfType<GhostTrail>().ShowGhost();
         StartCoroutine(GroundDash());
-        //DOVirtual.Float(14, 0, .8f, RigidbodyDrag);
 
         dashParticle.Play();
         rb.gravityScale = 0;
