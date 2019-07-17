@@ -8,6 +8,7 @@ public class TBear : MonoBehaviour
     private float initialGravity;
     public float colDelay;
     public float throwPower;
+    public float minVelocity;
 
     private Rigidbody2D bearBody;
     private Vector3 mouseDir;
@@ -32,6 +33,14 @@ public class TBear : MonoBehaviour
     void Update()
     {
         currentTimer -= Time.deltaTime;
+
+        // fixes direction
+        Vector2 currentVelocity = bearBody.velocity;
+        if (currentVelocity.magnitude >= minVelocity)
+        {
+            float targetAngle = Mathf.Atan2(currentVelocity.y, currentVelocity.x) * Mathf.Rad2Deg - 90;
+            transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.Euler (0, 0, targetAngle), throwPower * Time.deltaTime);
+        }
 
         if(currentTimer <= 0)
         {
@@ -61,26 +70,6 @@ public class TBear : MonoBehaviour
         mouseDir = (Input.mousePosition - sp).normalized;
         velocity = mouseDir * throwPower;
         bearBody.AddForce(velocity);
-
-        // set scale for object position (todo)
-        Vector3 moveDirection = Vector3.right;
-        Vector3 moveToward;
-        // gets the mouse position relative to the camera and stores it in movetoward
-        moveToward = Camera.main.ScreenToWorldPoint( Input.mousePosition );
-        // moveDirection (variable announced at top of class) becomes moveToward - current position
-        moveDirection = moveToward - transform.position;
-        // make z part of the vector 0 as we dont need it
-        moveDirection.z = 0;
-        // normalize the vector so its in units of 1
-        moveDirection.Normalize();
-        // if we have moved and need to rotate
-        if (moveDirection != Vector3.zero)
-        {
-            // calculates the angle we should turn towards, - 90 makes the sprite rotate
-            float targetAngle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg - 90;
-            // actually rotates the sprite using Slerp (from its previous rotation, to the new one at the designated speed.
-            transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.Euler (0, 0, targetAngle), throwPower * Time.deltaTime);
-        }
     }
 
     void destroyTBear(bool destructor)
@@ -95,7 +84,7 @@ public class TBear : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (availableBounces == 0)
+        if (availableBounces == 0 || currentTimer <= 0)
         {
             return;
         }
@@ -110,10 +99,6 @@ public class TBear : MonoBehaviour
         //apply new direction adding force
         velocity.Normalize();
         bearBody.AddForce(velocity * throwPower);
-
-        // fixes direction
-        float targetAngle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg - 90;
-        transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.Euler (0, 0, targetAngle), throwPower * Time.deltaTime);
 
         // resets timer
         currentTimer = initialTimer * 0.6f;
