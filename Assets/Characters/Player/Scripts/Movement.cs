@@ -57,10 +57,17 @@ public class Movement : MonoBehaviour
     void Update()
     {
         float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
+        float y = Input.GetAxis("Vertical");    
+                
+        if(!canMove)
+        {
+            x = 0; y = 0;
+        }
+
         Vector2 dir = new Vector2(x, y);
 
         Walk(dir);
+
         anim.SetHorizontalMovement(x, y, rb.velocity.y);
 
         if (coll.onWall && Input.GetButton("Fire3") && canMove)
@@ -110,7 +117,7 @@ public class Movement : MonoBehaviour
         if (!coll.onWall || coll.onGround)
             wallSlide = false;
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && canMove)
         {
             anim.SetTrigger("jump");
 
