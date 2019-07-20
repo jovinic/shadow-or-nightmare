@@ -8,8 +8,8 @@ public class Teleporter : MonoBehaviour
     public Transform activator = null;
     public bool activated;
     
-    public Animator transitionAnim;
     private Animator anim;
+    public Animator transitionAnim;
 
     private GameObject player;
 
@@ -22,7 +22,7 @@ public class Teleporter : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Player")
+        if(other.tag == "Player" && activated)
         {
             StartCoroutine(TeleportPlayer(other.gameObject)); 
         }
