@@ -23,7 +23,6 @@ public class Movement : MonoBehaviour
     [Space]
     [Header("Booleans")]
     public bool canMove;
-    public bool wallGrab;
     public bool wallJumped;
     public bool wallSlide;
     public bool isDashing;
@@ -57,8 +56,8 @@ public class Movement : MonoBehaviour
     void Update()
     {
         float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");    
-                
+        float y = Input.GetAxis("Vertical");
+
         if(!canMove)
         {
             x = 0; y = 0;
@@ -70,44 +69,17 @@ public class Movement : MonoBehaviour
 
         anim.SetHorizontalMovement(x, y, rb.velocity.y);
 
-        if (coll.onWall && Input.GetButton("Fire3") && canMove)
-        {
-            if(side != coll.wallSide)
-                anim.Flip(side*-1);
-            wallGrab = true;
-            wallSlide = false;
-        }
-
-        if (Input.GetButtonUp("Fire3") || !coll.onWall || !canMove)
-        {
-            wallGrab = false;
-            wallSlide = false;
-        }
-
         if (coll.onGround && !isDashing)
         {
             wallJumped = false;
             GetComponent<BetterJumping>().enabled = true;
         }
 
-        if (wallGrab && !isDashing)
-        {
-            rb.gravityScale = 0;
-            if(x > .2f || x < -.2f)
-            rb.velocity = new Vector2(rb.velocity.x, 0);
-
-            float speedModifier = y > 0 ? .5f : 1;
-
-            rb.velocity = new Vector2(rb.velocity.x, y * (speed * speedModifier));
-        }
-        else
-        {
-            rb.gravityScale = 3;
-        }
+        rb.gravityScale = 3;
 
         if(coll.onWall && !coll.onGround)
         {
-            if (x != 0 && !wallGrab)
+            if (x != 0)
             {
                 wallSlide = true;
                 WallSlide();
@@ -127,13 +99,6 @@ public class Movement : MonoBehaviour
                 WallJump();
         }
 
-        /*
-        if (Input.GetButtonDown("Fire1") && !hasDashed)
-        {
-            if(xRaw != 0 || yRaw != 0)
-                Dash(xRaw, yRaw);
-        }
-        */
         if (Input.GetButtonDown("Fire1") && canThrow && (playerLevel > 0))
         {
             TBearThrow();
@@ -157,7 +122,7 @@ public class Movement : MonoBehaviour
 
         WallParticle(y);
 
-        if (wallGrab || wallSlide || !canMove)
+        if (wallSlide || !canMove)
             return;
 
         if(x > 0)
@@ -304,9 +269,6 @@ public class Movement : MonoBehaviour
         if (!canMove)
             return;
 
-        if (wallGrab)
-            return;
-
         if (!wallJumped)
         {
             rb.velocity = new Vector2(dir.x * speed, rb.velocity.y);
@@ -344,7 +306,7 @@ public class Movement : MonoBehaviour
     {
         var main = slideParticle.main;
 
-        if (wallSlide || (wallGrab && vertical < 0))
+        if (wallSlide || vertical < 0)
         {
             slideParticle.transform.parent.localScale = new Vector3(ParticleSide(), 1, 1);
             main.startColor = Color.white;

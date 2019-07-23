@@ -9669,8 +9669,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.068137646, y: -0.34039772}
-  m_Size: {x: 0.77615833, y: 0.8090942}
+  m_Offset: {x: -0.068137646, y: -0.35043126}
+  m_Size: {x: 0.77615833, y: 0.8291613}
   m_Direction: 0
 --- !u!114 &2923108765304542812
 MonoBehaviour:
@@ -9693,7 +9693,7 @@ MonoBehaviour:
   onLeftWall: 0
   wallSide: 0
   collisionRadius: 0.1
-  bottomOffset: {x: -0.06, y: -0.67}
+  bottomOffset: {x: -0.06, y: -0.79}
   rightOffset: {x: 0.36, y: -0.32}
   leftOffset: {x: -0.49, y: -0.32}
 --- !u!114 &2923108765304542813
@@ -9723,6 +9723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  playerLevel: 0
   speed: 7
   jumpForce: 12
   slideSpeed: 1

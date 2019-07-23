@@ -1,0 +1,49 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class TutorialInput : MonoBehaviour
+{
+    public string buttonAnimTrigger;
+    private Animator anim;
+
+    void Awake()
+    {
+        anim = GetComponent<Animator>();
+        anim.SetTrigger(buttonAnimTrigger);
+
+        switch(buttonAnimTrigger)
+        {
+            case "WalkRight":
+                StartCoroutine(WaitForWalkInput());
+                break;
+            case "LMB":
+                StartCoroutine(WaitForLMBInput());
+                break;
+        }
+
+    }
+
+    IEnumerator WaitForWalkInput()
+    {
+        float axis = 0;
+        while(axis == 0)
+        {
+            axis = Input.GetAxis ("Horizontal");
+            yield return null;
+        }
+
+        Destroy(this.gameObject);
+    }
+
+    IEnumerator WaitForLMBInput()
+    {
+        while(!Input.GetButtonDown("Fire1"))
+        {
+            yield return null;
+        }
+
+        Destroy(this.gameObject);
+    }
+
+}
