@@ -6,22 +6,30 @@ public class TutorialInput : MonoBehaviour
 {
     public string buttonAnimTrigger;
     private Animator anim;
+    private bool animTriggered = false;
 
-    void Awake()
+    void Start()
     {
         anim = GetComponent<Animator>();
-        anim.SetTrigger(buttonAnimTrigger);
+    }
 
-        switch(buttonAnimTrigger)
+    void Update()
+    {
+        if(buttonAnimTrigger != null && !animTriggered)
         {
-            case "WalkRight":
-                StartCoroutine(WaitForWalkInput());
-                break;
-            case "LMB":
-                StartCoroutine(WaitForLMBInput());
-                break;
-        }
+            animTriggered = true;
+            anim.SetTrigger(buttonAnimTrigger);
 
+            switch(buttonAnimTrigger)
+            {
+                case "WalkRight":
+                    StartCoroutine(WaitForWalkInput());
+                    break;
+                case "LMB":
+                    StartCoroutine(WaitForLMBInput());
+                    break;
+            }
+        }
     }
 
     IEnumerator WaitForWalkInput()

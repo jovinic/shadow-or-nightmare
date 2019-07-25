@@ -43,6 +43,7 @@ public class Movement : MonoBehaviour
     [Space]
     [Header("TBear Control")]
     public GameObject tBear;
+    [HideInInspector] public GameObject newTBear;
     public bool canThrow;
 
     void Start()
@@ -144,14 +145,13 @@ public class Movement : MonoBehaviour
         canThrow = false;
         //anim.SetTrigger("Throw");
 
-        GameObject newTBear = Instantiate(tBear,
-                                          transform.position,
-                                          tBear.transform.rotation)
-                              as GameObject;
+        newTBear = Instantiate(tBear, transform.position, tBear.transform.rotation);
+        newTBear.transform.parent = transform;
     }
 
     private void TBearRetrieve()
     {
+        newTBear = null;
         canThrow = true;
     }
 

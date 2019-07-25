@@ -104,4 +104,9 @@ public class TBear : MonoBehaviour
         currentTimer = initialTimer * 0.6f;
         availableBounces--;
     }
+
+    public void FreezeTBear()
+    {
+        bearBody.constraints = RigidbodyConstraints2D.FreezeAll;
+    }
 }
