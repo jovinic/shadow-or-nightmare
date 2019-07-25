@@ -18,18 +18,15 @@ public class Movement : MonoBehaviour
     public float jumpForce = 50;
     public float slideSpeed = 5;
     public float wallJumpLerp = 10;
-    public float dashSpeed = 20;
 
     [Space]
     [Header("Booleans")]
     public bool canMove;
     public bool wallJumped;
     public bool wallSlide;
-    public bool isDashing;
 
     [Space]
     private bool groundTouch;
-    private bool hasDashed;
 
     public int side = 1;
 
@@ -70,7 +67,7 @@ public class Movement : MonoBehaviour
 
         anim.SetHorizontalMovement(x, y, rb.velocity.y);
 
-        if (coll.onGround && !isDashing)
+        if (coll.onGround)
         {
             wallJumped = false;
             GetComponent<BetterJumping>().enabled = true;
@@ -126,18 +123,7 @@ public class Movement : MonoBehaviour
         if (wallSlide || !canMove)
             return;
 
-        if(x > 0)
-        {
-            side = 1;
-            anim.Flip(side);
-        }
-        if (x < 0)
-        {
-            side = -1;
-            anim.Flip(side);
-        }
-
-
+        FlipAnim(x);
     }
 
     private void TBearThrow()
@@ -175,57 +161,16 @@ public class Movement : MonoBehaviour
 
     public void UnfreezePlayer()
     {
-        canMove = true;
         rb.constraints = playerConstraints;
+        canMove = true;
     }
 
     void GroundTouch()
     {
-        hasDashed = false;
-        isDashing = false;
 
         side = anim.sr.flipX ? -1 : 1;
 
         jumpParticle.Play();
-    }
-
-    private void Dash(float x, float y)
-    {
-        hasDashed = true;
-
-        anim.SetTrigger("dash");
-
-        rb.velocity = Vector2.zero;
-        Vector2 dir = new Vector2(x, y);
-
-        rb.velocity += dir.normalized * dashSpeed;
-        StartCoroutine(DashWait());
-    }
-
-    IEnumerator DashWait()
-    {
-        StartCoroutine(GroundDash());
-
-        dashParticle.Play();
-        rb.gravityScale = 0;
-        GetComponent<BetterJumping>().enabled = false;
-        wallJumped = true;
-        isDashing = true;
-
-        yield return new WaitForSeconds(.3f);
-
-        dashParticle.Stop();
-        rb.gravityScale = 3;
-        GetComponent<BetterJumping>().enabled = true;
-        wallJumped = false;
-        isDashing = false;
-    }
-
-    IEnumerator GroundDash()
-    {
-        yield return new WaitForSeconds(.15f);
-        if (coll.onGround)
-            hasDashed = false;
     }
 
     private void WallJump()
@@ -321,5 +266,19 @@ public class Movement : MonoBehaviour
     {
         int particleSide = coll.onRightWall ? 1 : -1;
         return particleSide;
+    }
+
+    private void FlipAnim(float x)
+    {
+        if(x > 0)
+        {
+            side = 1;
+        }
+        if(x < 0)
+        {
+            side = -1;
+        }
+
+        anim.Flip(side);
     }
 }
