@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1965384491489261160}
   - component: {fileID: 1965384491489261163}
   - component: {fileID: 1965384491489261162}
-  - component: {fileID: 5747062443465118998}
+  - component: {fileID: 197408188390356043}
   - component: {fileID: 6279821115971304014}
   - component: {fileID: 6650071527314307364}
   m_Layer: 9
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 7aa719696f1f07d488e6dc4841906447, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -104,8 +104,8 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!61 &5747062443465118998
-BoxCollider2D:
+--- !u!70 &197408188390356043
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -117,19 +117,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.03693086, y: 0.2271471}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
-    newSize: {x: 0.32, y: 0.32}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.7488705, y: 0.84185505}
-  m_EdgeRadius: 0
+  m_Offset: {x: -0.0014804602, y: 0.011901617}
+  m_Size: {x: 0.42364025, y: 0.7365308}
+  m_Direction: 0
 --- !u!50 &6279821115971304014
 Rigidbody2D:
   serializedVersion: 4
@@ -149,7 +139,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: b91d4ca78fbacdd49a064e4daaced6be, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &6650071527314307364
 MonoBehaviour:
@@ -165,5 +155,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialTimer: 0.5
   colDelay: 0.5
-  throwPower: 700
+  throwPower: 800
   minVelocity: 2
