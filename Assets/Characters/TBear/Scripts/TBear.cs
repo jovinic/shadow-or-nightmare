@@ -50,7 +50,8 @@ public class TBear : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>().position = gameObject.GetComponent<Transform>().position;
+            Vector3 bearPos = gameObject.GetComponent<Transform>().position;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>().position = new Vector3(bearPos.x, bearPos.y + 0.15f, bearPos.z);
 
             destroyTBear(true);
             return;
