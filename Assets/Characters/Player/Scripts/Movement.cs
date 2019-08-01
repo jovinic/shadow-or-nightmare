@@ -132,7 +132,6 @@ public class Movement : MonoBehaviour
         //anim.SetTrigger("Throw");
 
         newTBear = Instantiate(tBear, transform.position, tBear.transform.rotation);
-        newTBear.transform.parent = transform;
     }
 
     private void TBearRetrieve()

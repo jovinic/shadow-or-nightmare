@@ -151,7 +151,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1073567260}
-  waitTBear: 1
   waitTBearSeconds: 1
   tutorialInput: {fileID: 2219178738414390229, guid: b4568ebdd0be5494d86ab67ec659d2a1,
     type: 3}
@@ -62015,7 +62014,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1073567260}
-  waitTBear: 1
   waitTBearSeconds: 1
   tutorialInput: {fileID: 2219178738414390229, guid: b4568ebdd0be5494d86ab67ec659d2a1,
     type: 3}
@@ -62106,6 +62104,7 @@ GameObject:
   - component: {fileID: 1638710952}
   - component: {fileID: 1638710951}
   - component: {fileID: 1638710950}
+  - component: {fileID: 1638710953}
   m_Layer: 13
   m_Name: Spikes1
   m_TagString: Untagged
@@ -62204,6 +62203,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1638710953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638710949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6054feb194c5ebe429277d0aa138a34b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exceptionObjTag: TBear
+  pushForce: 200
 --- !u!1 &1764245200
 GameObject:
   m_ObjectHideFlags: 0
