@@ -7,6 +7,7 @@ public class Collision : MonoBehaviour
 
     [Header("Layers")]
     public LayerMask groundLayer;
+    public LayerMask triggerPushLayer;
 
     [Space]
 
@@ -14,6 +15,7 @@ public class Collision : MonoBehaviour
     public bool onWall;
     public bool onRightWall;
     public bool onLeftWall;
+    public bool triggerPush;
     public int wallSide;
 
     [Space]
@@ -26,12 +28,17 @@ public class Collision : MonoBehaviour
 
     void Update()
     {
-        onGround = Physics2D.OverlapCircle((Vector2)transform.position + bottomOffset, collisionRadius, groundLayer);
-        onWall = Physics2D.OverlapCircle((Vector2)transform.position + rightOffset, collisionRadius, groundLayer) ||
-                 Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, collisionRadius, groundLayer);
+        LayerMask collingLayers = groundLayer | triggerPushLayer;
 
-        onRightWall = Physics2D.OverlapCircle((Vector2)transform.position + rightOffset, collisionRadius, groundLayer);
-        onLeftWall = Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, collisionRadius, groundLayer);
+        onGround = Physics2D.OverlapCircle((Vector2)transform.position + bottomOffset, collisionRadius, collingLayers);
+        onWall = Physics2D.OverlapCircle((Vector2)transform.position + rightOffset, collisionRadius, collingLayers) ||
+                 Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, collisionRadius, collingLayers);
+
+        onRightWall = Physics2D.OverlapCircle((Vector2)transform.position + rightOffset, collisionRadius, collingLayers);
+        onLeftWall = Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, collisionRadius, collingLayers);
+
+        triggerPush = Physics2D.OverlapCircle((Vector2)transform.position + rightOffset, collisionRadius, triggerPushLayer) ||
+                 Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, collisionRadius, triggerPushLayer);
 
         wallSide = onRightWall ? -1 : 1;
     }

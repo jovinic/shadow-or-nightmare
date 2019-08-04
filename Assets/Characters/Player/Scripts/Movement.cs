@@ -67,7 +67,12 @@ public class Movement : MonoBehaviour
 
         anim.SetHorizontalMovement(x, y, rb.velocity.y);
 
-        if (coll.onGround)
+        if(coll.triggerPush)
+        {
+            WallJump(true);
+        }
+
+        if(coll.onGround)
         {
             wallJumped = false;
             GetComponent<BetterJumping>().enabled = true;
@@ -94,7 +99,7 @@ public class Movement : MonoBehaviour
             if (coll.onGround)
                 Jump(Vector2.up, false);
             if (coll.onWall && !coll.onGround)
-                WallJump();
+                WallJump(false);
         }
 
         if (Input.GetButtonDown("Fire1") && canThrow && (playerLevel > 0))
@@ -172,7 +177,7 @@ public class Movement : MonoBehaviour
         jumpParticle.Play();
     }
 
-    private void WallJump()
+    private void WallJump(bool pushTrigger)
     {
         if ((side == 1 && coll.onRightWall) || side == -1 && !coll.onRightWall)
         {
@@ -185,7 +190,14 @@ public class Movement : MonoBehaviour
 
         Vector2 wallDir = coll.onRightWall ? Vector2.left : Vector2.right;
 
-        Jump((Vector2.up / 1.5f + wallDir / 1.5f), true);
+        if(pushTrigger)
+        {
+            Jump((wallDir / 4f), true);
+        }
+        else
+        {
+            Jump((Vector2.up / 1.5f + wallDir / 1.5f), true);
+        }
 
         wallJumped = true;
     }
