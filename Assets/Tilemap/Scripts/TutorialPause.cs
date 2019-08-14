@@ -7,35 +7,40 @@ public class TutorialPause : MonoBehaviour
     public GameObject player;
     public float waitTBearSeconds;
 
-    private bool objectBlocked;
+    private bool objectBlocked = false;
+    private int tBearCount = 0;
     private GameObject tutorialTBear;
 
     public GameObject tutorialInput;
 
-    void Start()
-    {
-        objectBlocked = false;
-    }
-
     void Update()
     {
-        if(objectBlocked && Input.GetButtonDown("Fire1"))
+        if(!objectBlocked)
         {
-            if(tutorialTBear == null)
-            {
-                tutorialTBear = GameObject.FindGameObjectWithTag("TBear");
+            return;
+        }
 
-                StartCoroutine(WaitForTBearRetrieve());
-            } else
+        if(Input.GetButtonDown("Fire1"))
+        {
+            tBearCount++;
+
+            if(tBearCount == 1) // only threw, trigger retrieve tutorial
             {
-                destroySelf();
+                StartCoroutine(WaitForTBearRetrieve());
             }
+        }
+
+        if(tBearCount == 2) // threw and retrieved
+        {
+            destroySelf();
         }
     }
 
     IEnumerator WaitForTBearRetrieve()
     {
         yield return new WaitForSeconds(waitTBearSeconds);
+
+        GameObject tutorialTBear = GameObject.FindGameObjectWithTag("TBear");
 
         if(tutorialTBear != null)
         {
@@ -49,7 +54,7 @@ public class TutorialPause : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.name == player.name && !objectBlocked)
+        if(other.tag == player.tag && !objectBlocked)
         {
             player.GetComponent<Movement>().FreezePlayer(true);
 
@@ -64,9 +69,9 @@ public class TutorialPause : MonoBehaviour
 
     void destroySelf()
     {
-        Destroy(gameObject);
-
         player.GetComponent<Movement>().UnfreezePlayer();
+
+        Destroy(this.gameObject);
     }
 
 }
