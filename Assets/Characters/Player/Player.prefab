@@ -9670,8 +9670,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.068137646, y: -0.35043126}
-  m_Size: {x: 0.77615833, y: 0.8291613}
+  m_Offset: {x: 0.023406386, y: -0.03834945}
+  m_Size: {x: 0.84273577, y: 0.90406096}
   m_Direction: 0
 --- !u!114 &2923108765304542812
 MonoBehaviour:
@@ -9698,9 +9698,9 @@ MonoBehaviour:
   triggerPush: 0
   wallSide: 0
   collisionRadius: 0.1
-  bottomOffset: {x: -0.06, y: -0.79}
-  rightOffset: {x: 0.36, y: -0.32}
-  leftOffset: {x: -0.49, y: -0.32}
+  bottomOffset: {x: 0, y: -0.5}
+  rightOffset: {x: 0.45, y: -0.1}
+  leftOffset: {x: -0.45, y: -0.1}
 --- !u!114 &2923108765304542813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14661,7 +14661,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: -4398183398628465896, guid: 2280ca6c2a4f635498a665c483a5658a,
+  m_Sprite: {fileID: 7839784871684049599, guid: 2280ca6c2a4f635498a665c483a5658a,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
