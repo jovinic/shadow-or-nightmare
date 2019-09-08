@@ -18,9 +18,9 @@ public class SceneTeleporter : MonoBehaviour
     void Start()
     {
         activated = activator == null ? true : false;
-        anim = GetComponentInParent<Animator>();  
+        anim = GetComponentInParent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
-    }    
+    }
 
     public void OnTriggerEnter2D(Collider2D other)
     {
@@ -36,12 +36,12 @@ public class SceneTeleporter : MonoBehaviour
 
         transitionAnim.SetTrigger("End");
         yield return new WaitForSeconds(transitionAnim.GetCurrentAnimatorStateInfo(0).length);
-        
+
         SceneManager.LoadScene(sceneName);
     }
 
     /* Activation Animations and Actions */
-    
+
     public void ActivationAnimTrigger()
     {
         anim.SetTrigger("Open");
@@ -51,7 +51,7 @@ public class SceneTeleporter : MonoBehaviour
     {
         player.GetComponent<Movement>().FreezePlayer();
     }
-    
+
     public void ActivationAnimEnd()
     {
         activated = true;
