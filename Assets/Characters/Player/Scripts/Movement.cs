@@ -32,7 +32,6 @@ public class Movement : MonoBehaviour
 
     [Space]
     [Header("Polish")]
-    public ParticleSystem dashParticle;
     public ParticleSystem jumpParticle;
     public ParticleSystem wallJumpParticle;
     public ParticleSystem slideParticle;

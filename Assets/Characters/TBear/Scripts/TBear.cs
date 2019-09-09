@@ -10,6 +10,9 @@ public class TBear : MonoBehaviour
     public float throwPower;
     public float minVelocity;
 
+    public ParticleSystem burstParticle;
+    public ParticleSystem idleParticle;
+
     private Rigidbody2D bearBody;
     private Vector3 mouseDir;
     private Vector3 velocity;
@@ -28,6 +31,8 @@ public class TBear : MonoBehaviour
         availableBounces = playerLevel > 1 ? 1 : 0;
 
         Throw();
+        burstParticle.Play();
+        idleParticle.Play();
     }
 
     void Update()
@@ -46,6 +51,21 @@ public class TBear : MonoBehaviour
         {
             bearBody.velocity = new Vector2(bearBody.velocity.x - (bearBody.velocity.x * 0.01f), bearBody.velocity.y);
             bearBody.gravityScale = initialGravity * 2f;
+        }
+
+        if(bearBody.velocity.magnitude > 0.1)
+        {
+            if(!idleParticle.isPlaying)
+            {
+                idleParticle.Play();
+            }
+        }
+        else
+        {
+            if(idleParticle.isPlaying)
+            {
+                idleParticle.Stop();
+            }
         }
 
         if (Input.GetButtonDown("Fire1"))
