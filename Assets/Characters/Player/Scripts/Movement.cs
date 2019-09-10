@@ -103,7 +103,14 @@ public class Movement : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1") && canThrow && (playerLevel > 0))
         {
-            TBearThrow();
+            if(coll.onWall && !coll.onGround)
+            {
+                //workaround to prevent player from climbing out of stage
+            }
+            else
+            {
+                TBearThrow();
+            }
         }
 
         if (Input.GetButtonDown("Fire2") && !canThrow)
