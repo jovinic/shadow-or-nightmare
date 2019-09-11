@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Collision : MonoBehaviour
 {
@@ -22,12 +23,19 @@ public class Collision : MonoBehaviour
 
     [Header("Collision")]
 
+    public GameObject sceneLimit;
+
     public float collisionRadius = 0.25f;
     public Vector2 bottomOffset, rightOffset, leftOffset;
     private Color debugCollisionColor = Color.red;
 
     void Update()
     {
+        if(sceneLimit != null && transform.position.y < sceneLimit.transform.position.y)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
         LayerMask collingLayers = groundLayer | triggerPushLayer;
 
         onGround = Physics2D.OverlapCircle((Vector2)transform.position + bottomOffset, collisionRadius, collingLayers);
