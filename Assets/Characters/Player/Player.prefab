@@ -9697,6 +9697,7 @@ MonoBehaviour:
   onLeftWall: 0
   triggerPush: 0
   wallSide: 0
+  sceneLimit: {fileID: 0}
   collisionRadius: 0.1
   bottomOffset: {x: 0, y: -0.5}
   rightOffset: {x: 0.45, y: -0.1}
@@ -14658,7 +14659,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 4
   m_Sprite: {fileID: 7839784871684049599, guid: 2280ca6c2a4f635498a665c483a5658a,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -14742,8 +14743,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7963910590240643907}
   m_Enabled: 1
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 2
+  m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 10

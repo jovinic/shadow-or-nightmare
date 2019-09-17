@@ -28,6 +28,9 @@ public class TutorialInput : MonoBehaviour
                 case "LMB":
                     StartCoroutine(WaitForLMBInput());
                     break;
+                case "Up":
+                    StartCoroutine(WaitForUpInput());
+                    break;
             }
         }
     }
@@ -38,6 +41,18 @@ public class TutorialInput : MonoBehaviour
         while(axis == 0)
         {
             axis = Input.GetAxis ("Horizontal");
+            yield return null;
+        }
+
+        Destroy(this.gameObject);
+    }
+
+    IEnumerator WaitForUpInput()
+    {
+        float axis = 0;
+        while(axis <= 0)
+        {
+            axis = Input.GetAxis ("Vertical");
             yield return null;
         }
 

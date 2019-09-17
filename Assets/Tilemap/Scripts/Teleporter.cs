@@ -7,7 +7,7 @@ public class Teleporter : MonoBehaviour
     public Transform destination;
     public Transform activator = null;
     public bool activated;
-    
+
     private Animator anim;
     public Animator transitionAnim;
 
@@ -16,7 +16,7 @@ public class Teleporter : MonoBehaviour
     void Start()
     {
         activated = activator == null ? true : false;
-        anim = GetComponentInParent<Animator>(); 
+        anim = GetComponentInParent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -24,7 +24,7 @@ public class Teleporter : MonoBehaviour
     {
         if(other.tag == "Player" && activated)
         {
-            StartCoroutine(TeleportPlayer(other.gameObject)); 
+            StartCoroutine(TeleportPlayer(other.gameObject));
         }
     }
 
@@ -34,13 +34,13 @@ public class Teleporter : MonoBehaviour
 
         transitionAnim.SetTrigger("End");
         yield return new WaitForSeconds(transitionAnim.GetCurrentAnimatorStateInfo(0).length);
-        
+
         player.GetComponent<Movement>().TeleportPlayer(destination);
         player.GetComponent<Movement>().UnfreezePlayer();
     }
 
     /* Activation Animations and Actions */
-    
+
     public void ActivationAnimTrigger()
     {
         anim.SetTrigger("Open");
@@ -50,7 +50,7 @@ public class Teleporter : MonoBehaviour
     {
         player.GetComponent<Movement>().FreezePlayer();
     }
-    
+
     public void ActivationAnimEnd()
     {
         activated = true;
