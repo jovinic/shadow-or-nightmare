@@ -60381,6 +60381,11 @@ PrefabInstance:
       propertyPath: playerLevel
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8526937132499034110, guid: 74317fb9c471a7743bbbc45b2978bf0b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2923108765304542812, guid: 74317fb9c471a7743bbbc45b2978bf0b,
         type: 3}
       propertyPath: sceneLimit
@@ -60391,11 +60396,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-    - target: {fileID: 8526937132499034110, guid: 74317fb9c471a7743bbbc45b2978bf0b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74317fb9c471a7743bbbc45b2978bf0b, type: 3}
 --- !u!4 &847245398 stripped
@@ -60896,7 +60896,7 @@ PrefabInstance:
     - target: {fileID: 4318795546463973623, guid: fa2b1f57e67313748ba87ff25c64ab18,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.8799998
+      value: -0.87999976
       objectReference: {fileID: 0}
     - target: {fileID: 4318795546463973623, guid: fa2b1f57e67313748ba87ff25c64ab18,
         type: 3}
@@ -60961,12 +60961,12 @@ PrefabInstance:
     - target: {fileID: 4318795546662753219, guid: fa2b1f57e67313748ba87ff25c64ab18,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.00000047683716
       objectReference: {fileID: 0}
     - target: {fileID: 4318795546662753219, guid: fa2b1f57e67313748ba87ff25c64ab18,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.00000011920929
       objectReference: {fileID: 0}
     - target: {fileID: 4318795546662753219, guid: fa2b1f57e67313748ba87ff25c64ab18,
         type: 3}
@@ -60983,6 +60983,11 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 847245398}
+    - target: {fileID: 4318795546463973625, guid: fa2b1f57e67313748ba87ff25c64ab18,
+        type: 3}
+      propertyPath: orthographic
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa2b1f57e67313748ba87ff25c64ab18, type: 3}
 --- !u!1 &1517725264

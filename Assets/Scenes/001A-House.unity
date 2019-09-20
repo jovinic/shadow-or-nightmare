@@ -48373,46 +48373,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4318795546662753219, guid: fa2b1f57e67313748ba87ff25c64ab18,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4318795546662753219, guid: fa2b1f57e67313748ba87ff25c64ab18,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4318795546662753219, guid: fa2b1f57e67313748ba87ff25c64ab18,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4318795546662753216, guid: fa2b1f57e67313748ba87ff25c64ab18,
         type: 3}
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 1314132483}
-    - target: {fileID: 4318795546463973625, guid: fa2b1f57e67313748ba87ff25c64ab18,
-        type: 3}
-      propertyPath: orthographic size
-      value: 7.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4318795546463973625, guid: fa2b1f57e67313748ba87ff25c64ab18,
-        type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0.13725491
-      objectReference: {fileID: 0}
-    - target: {fileID: 4318795546463973625, guid: fa2b1f57e67313748ba87ff25c64ab18,
-        type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0.14117648
-      objectReference: {fileID: 0}
-    - target: {fileID: 4318795546463973625, guid: fa2b1f57e67313748ba87ff25c64ab18,
-        type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0.18039216
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa2b1f57e67313748ba87ff25c64ab18, type: 3}
 --- !u!1001 &2923108764428138811
