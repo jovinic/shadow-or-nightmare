@@ -39,6 +39,7 @@ public class Movement : MonoBehaviour
     [Space]
     [Header("TBear Control")]
     public GameObject tBear;
+    public GameObject ownTBear;
     [HideInInspector] public GameObject newTBear;
     public bool canThrow;
 
