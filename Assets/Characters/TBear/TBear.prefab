@@ -139,7 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialTimer: 0.5
   colDelay: 0.5
-  throwPower: 800
+  throwPower: 900
   minVelocity: 2
   burstParticle: {fileID: 3857246132702353461}
   idleParticle: {fileID: 7022283257439055505}

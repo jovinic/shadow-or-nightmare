@@ -48378,6 +48378,11 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 1314132483}
+    - target: {fileID: 4318795546662753219, guid: fa2b1f57e67313748ba87ff25c64ab18,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa2b1f57e67313748ba87ff25c64ab18, type: 3}
 --- !u!1001 &2923108764428138811

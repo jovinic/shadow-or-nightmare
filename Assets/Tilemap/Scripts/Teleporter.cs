@@ -6,6 +6,7 @@ public class Teleporter : MonoBehaviour
 {
     public Transform destination;
     public Transform activator = null;
+    public GameObject openLight = null;
     public bool activated;
 
     private Animator anim;
@@ -18,6 +19,11 @@ public class Teleporter : MonoBehaviour
         activated = activator == null ? true : false;
         anim = GetComponentInParent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
+
+        if(openLight != null)
+        {
+            openLight.SetActive(false);
+        }
     }
 
     public void OnTriggerEnter2D(Collider2D other)
@@ -49,6 +55,10 @@ public class Teleporter : MonoBehaviour
     public void ActivationAnimBegin()
     {
         player.GetComponent<Movement>().FreezePlayer();
+        if(openLight != null)
+        {
+            openLight.SetActive(true);
+        }
     }
 
     public void ActivationAnimEnd()
