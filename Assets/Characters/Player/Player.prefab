@@ -9743,6 +9743,7 @@ MonoBehaviour:
   wallJumpParticle: {fileID: 2923108765421415609}
   slideParticle: {fileID: 2923108764403592595}
   tBear: {fileID: 1965384491489261205, guid: bfd215a0977c70548840934e64dae285, type: 3}
+  ownTBear: {fileID: 8476081091925621022}
   newTBear: {fileID: 0}
   canThrow: 1
 --- !u!1 &2923108765421415492
@@ -14705,6 +14706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sr: {fileID: 0}
+  tbearSr: {fileID: 0}
 --- !u!1 &8476081091925621022
 GameObject:
   m_ObjectHideFlags: 0

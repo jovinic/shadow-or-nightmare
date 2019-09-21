@@ -53,6 +53,8 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+        ownTBear.SetActive(canThrow ? true : false);
+
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
 
