@@ -112,7 +112,7 @@ public class Movement : MonoBehaviour
             }
             else
             {
-                TBearThrow();
+                anim.PrepareThrow();
             }
         }
 
@@ -140,10 +140,9 @@ public class Movement : MonoBehaviour
         FlipAnim(x);
     }
 
-    private void TBearThrow()
+    public void TBearThrow()
     {
         canThrow = false;
-        //anim.SetTrigger("Throw");
 
         newTBear = Instantiate(tBear, transform.position, tBear.transform.rotation);
     }

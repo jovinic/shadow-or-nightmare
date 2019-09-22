@@ -59,6 +59,17 @@ public class AnimationScript : MonoBehaviour
         tbearAnim.SetTrigger(trigger);
     }
 
+    public void PrepareThrow()
+    {
+        anim.SetTrigger("throw");
+        tbearAnim.SetTrigger("throw");
+    }
+
+    public void TriggerThrow()
+    {
+        move.TBearThrow();
+    }
+
     public void Flip(int side)
     {
 
