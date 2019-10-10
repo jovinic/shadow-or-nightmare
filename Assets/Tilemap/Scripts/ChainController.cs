@@ -4,41 +4,28 @@ using UnityEngine;
 
 public class ChainController : MonoBehaviour
 {
-    public List<int> destroyedChain = new List<int>();
-    private bool isProcessingList = false;
+    private bool chainTriggered = false;
 
-    void Start()
+    public void StartChain(int chainIndex)
     {
-
-    }
-
-    void Update()
-    {
-        if(destroyedChain.Count == 0 || isProcessingList)
+        if(chainTriggered)
         {
             return;
         }
-        else
+        chainTriggered = true;
+        StartCoroutine(TriggerChain(chainIndex));
+    }
+
+    IEnumerator TriggerChain(int chainIndex)
+    {
+        Transform chainTransform = transform.Find("chain" + chainIndex);
+        if(chainTransform != null)
         {
-            isProcessingList = true;
-            foreach(int i in destroyedChain)
-            {
-                Transform chain = transform.Find("chain"+i);
-                chain.gameObject.GetComponent<ReleasableJoint>().canDestroy = true;
+            Destroy(chainTransform.gameObject);
 
-                if ((i-1) > 0)
-                {
-                    destroyedChain.Add(i-1);
-                }
-
-                if ((i+1) <= destroyedChain.Count)
-                {
-                    destroyedChain.Add(i+1);
-                }
-
-                break;
-            }
-            isProcessingList = false;
+            yield return new WaitForSeconds(.1f);
+            StartCoroutine(TriggerChain(chainIndex + 1));
+            StartCoroutine(TriggerChain(chainIndex - 1));
         }
     }
 }

@@ -8,6 +8,7 @@ TagManager:
   - TBear
   - PlayerSpawner
   - Platform
+  - PendulumChain
   layers:
   - Default
   - TransparentFX

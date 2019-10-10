@@ -37748,7 +37748,7 @@ GameObject:
   - component: {fileID: 486560711}
   m_Layer: 11
   m_Name: chain1
-  m_TagString: Untagged
+  m_TagString: PendulumChain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37921,7 +37921,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orderSeq: 1
-  canDestroy: 0
 --- !u!1001 &594878092
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38087,6 +38086,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2923108765304542815, guid: 74317fb9c471a7743bbbc45b2978bf0b,
+        type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 2923108765538839352, guid: 74317fb9c471a7743bbbc45b2978bf0b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -38146,11 +38150,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2923108765304542815, guid: 74317fb9c471a7743bbbc45b2978bf0b,
-        type: 3}
-      propertyPath: m_Name
-      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2923108765304542814, guid: 74317fb9c471a7743bbbc45b2978bf0b,
         type: 3}
@@ -38271,7 +38270,7 @@ GameObject:
   - component: {fileID: 891661856}
   m_Layer: 11
   m_Name: chain2
-  m_TagString: Untagged
+  m_TagString: PendulumChain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38310,7 +38309,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orderSeq: 2
-  canDestroy: 0
 --- !u!61 &891661857
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -38771,7 +38769,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e092f4de04069354db63f33c8777450f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyedChain: 
 --- !u!1 &1612336734
 GameObject:
   m_ObjectHideFlags: 0
@@ -38789,7 +38786,7 @@ GameObject:
   - component: {fileID: 1612336736}
   m_Layer: 11
   m_Name: chain3
-  m_TagString: Untagged
+  m_TagString: PendulumChain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38828,7 +38825,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orderSeq: 3
-  canDestroy: 0
 --- !u!61 &1612336737
 BoxCollider2D:
   m_ObjectHideFlags: 0
