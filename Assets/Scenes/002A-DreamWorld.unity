@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -60305,6 +60305,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2923108765304542815, guid: 74317fb9c471a7743bbbc45b2978bf0b,
+        type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 2923108765538839352, guid: 74317fb9c471a7743bbbc45b2978bf0b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -60364,11 +60369,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2923108765304542815, guid: 74317fb9c471a7743bbbc45b2978bf0b,
-        type: 3}
-      propertyPath: m_Name
-      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2923108765304542814, guid: 74317fb9c471a7743bbbc45b2978bf0b,
         type: 3}
@@ -60782,7 +60782,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 1
-      m_TileSpriteIndex: 1
+      m_TileSpriteIndex: 10
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -60872,7 +60872,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 8
-      m_TileSpriteIndex: 8
+      m_TileSpriteIndex: 9
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -60954,9 +60954,8 @@ Tilemap:
   - m_RefCount: 4
     m_Data: {fileID: -3309781605116015348, guid: 27fd52c4c7b26964e9a774ac2b2e1162,
       type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -6056380807486736462, guid: 27fd52c4c7b26964e9a774ac2b2e1162,
-      type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 3
     m_Data: {fileID: 8040196581939011165, guid: 27fd52c4c7b26964e9a774ac2b2e1162,
       type: 3}
@@ -60974,13 +60973,14 @@ Tilemap:
   - m_RefCount: 2
     m_Data: {fileID: -8480404140891905064, guid: 27fd52c4c7b26964e9a774ac2b2e1162,
       type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: -6108889420429456849, guid: 27fd52c4c7b26964e9a774ac2b2e1162,
       type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -6056380807486736462, guid: 27fd52c4c7b26964e9a774ac2b2e1162,
+      type: 3}
   - m_RefCount: 2
     m_Data: {fileID: -6936079216851816805, guid: 27fd52c4c7b26964e9a774ac2b2e1162,
       type: 3}
@@ -61153,6 +61153,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa2b1f57e67313748ba87ff25c64ab18, type: 3}
+--- !u!20 &1505523692 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 4318795546463973625, guid: fa2b1f57e67313748ba87ff25c64ab18,
+    type: 3}
+  m_PrefabInstance: {fileID: 1505523691}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1517725264
 GameObject:
   m_ObjectHideFlags: 0
@@ -68689,6 +68695,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6397145004283648958, guid: edffefca40e703249910c2d639762f88,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1505523692}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edffefca40e703249910c2d639762f88, type: 3}
 --- !u!1001 &7127877440479482868
