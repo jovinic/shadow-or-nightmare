@@ -48191,7 +48191,7 @@ PrefabInstance:
     - target: {fileID: 6397145004283648957, guid: edffefca40e703249910c2d639762f88,
         type: 3}
       propertyPath: m_Name
-      value: Canvas
+      value: SceneTransitionCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 6397145004283647041, guid: edffefca40e703249910c2d639762f88,
         type: 3}

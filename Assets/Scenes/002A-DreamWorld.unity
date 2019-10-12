@@ -61054,12 +61054,12 @@ PrefabInstance:
     - target: {fileID: 4318795546463973623, guid: fa2b1f57e67313748ba87ff25c64ab18,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.4500003
+      value: -5.6800003
       objectReference: {fileID: 0}
     - target: {fileID: 4318795546463973623, guid: fa2b1f57e67313748ba87ff25c64ab18,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.87999976
+      value: -1.4299997
       objectReference: {fileID: 0}
     - target: {fileID: 4318795546463973623, guid: fa2b1f57e67313748ba87ff25c64ab18,
         type: 3}
@@ -61129,12 +61129,12 @@ PrefabInstance:
     - target: {fileID: 4318795546662753219, guid: fa2b1f57e67313748ba87ff25c64ab18,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.77
       objectReference: {fileID: 0}
     - target: {fileID: 4318795546662753219, guid: fa2b1f57e67313748ba87ff25c64ab18,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.54999995
       objectReference: {fileID: 0}
     - target: {fileID: 4318795546662753219, guid: fa2b1f57e67313748ba87ff25c64ab18,
         type: 3}
@@ -68588,7 +68588,7 @@ PrefabInstance:
     - target: {fileID: 6397145004283648957, guid: edffefca40e703249910c2d639762f88,
         type: 3}
       propertyPath: m_Name
-      value: Canvas
+      value: SceneTransitionCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 6397145004283647041, guid: edffefca40e703249910c2d639762f88,
         type: 3}
