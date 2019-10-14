@@ -27,5 +27,9 @@ public class ChainController : MonoBehaviour
             StartCoroutine(TriggerChain(chainIndex + 1));
             StartCoroutine(TriggerChain(chainIndex - 1));
         }
+
+        Transform boxTransform = transform.Find("box");
+        Transform boxTransformChild = boxTransform.Find("interactBody");
+        boxTransformChild.gameObject.GetComponent<PendulumInteract>().isHanging = false;
     }
 }
