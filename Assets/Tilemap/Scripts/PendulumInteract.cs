@@ -69,6 +69,6 @@ public class PendulumInteract : MonoBehaviour
 
     public void ActivationAnimTrigger()
     {
-        anim.SetTrigger("Open");
+        anim.SetTrigger("Activate");
     }
 }
