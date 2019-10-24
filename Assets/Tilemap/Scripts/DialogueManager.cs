@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> sentences;
 
     public Animator animator;
+    public Animator transitionAnim;
+    public string nextSceneName;
 
     void Start()
     {
@@ -34,6 +37,7 @@ public class DialogueManager : MonoBehaviour
         if(sentences.Count == 0)
         {
             EndDialogue();
+            StartCoroutine(LoadSceneAfterDialogue(nextSceneName));
             return;
         }
 
@@ -56,6 +60,14 @@ public class DialogueManager : MonoBehaviour
     public void EndDialogue()
     {
         animator.SetBool("isOpen", false);
+    }
+
+    IEnumerator LoadSceneAfterDialogue(string sceneName)
+    {
+        transitionAnim.SetTrigger("End");
+        yield return new WaitForSeconds(transitionAnim.GetCurrentAnimatorStateInfo(0).length);
+
+        SceneManager.LoadScene(sceneName);
     }
 
 }

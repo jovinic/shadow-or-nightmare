@@ -10,9 +10,12 @@ EditorBuildSettings:
     guid: 6ecbc392155de9f4898e244e66af4334
   - enabled: 1
     path: Assets/Scenes/001A-House.unity
+    guid: 63f5f214f82ac584591483c5a36855b9
+  - enabled: 1
+    path: Assets/Scenes/001B-House.unity
     guid: f0adb4980b8a5204fa35eecfbee148c3
   - enabled: 1
-    path: Assets/Scenes/001B-DreamWorld.unity
+    path: Assets/Scenes/001C-DreamWorld.unity
     guid: ba862b73b0c8e4743b47e320a4a58467
   - enabled: 1
     path: Assets/Scenes/002A-DreamWorld.unity
