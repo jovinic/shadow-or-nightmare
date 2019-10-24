@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 106482721}
   - component: {fileID: 106482720}
   m_Layer: 5
-  m_Name: Dialogue
+  m_Name: DialogueText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45740,8 +45740,9 @@ GameObject:
   - component: {fileID: 606644595}
   - component: {fileID: 606644597}
   - component: {fileID: 606644596}
+  - component: {fileID: 606644598}
   m_Layer: 5
-  m_Name: Image
+  m_Name: DialogueBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45766,7 +45767,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -100}
+  m_AnchoredPosition: {x: -1, y: -100}
   m_SizeDelta: {x: 448, y: 128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &606644596
@@ -45805,6 +45806,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 606644594}
   m_CullTransparentMesh: 0
+--- !u!95 &606644598
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 606644594}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: de77591f4ffb4324f98735d2b1996114, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1048143754
 GameObject:
   m_ObjectHideFlags: 0
@@ -45974,7 +45994,7 @@ GameObject:
   - component: {fileID: 1362171970}
   - component: {fileID: 1362171969}
   m_Layer: 5
-  m_Name: Sprite
+  m_Name: PlayerSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46048,9 +46068,8 @@ GameObject:
   - component: {fileID: 1365068936}
   - component: {fileID: 1365068935}
   - component: {fileID: 1365068934}
-  - component: {fileID: 1365068938}
   m_Layer: 5
-  m_Name: DialogCanvas
+  m_Name: DialogueCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46136,18 +46155,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1365068938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1365068933}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe2b227d7427b354497091e640083bb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1517725264
 GameObject:
   m_ObjectHideFlags: 0
@@ -46204,8 +46211,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1577935110}
+  - component: {fileID: 1577935112}
+  - component: {fileID: 1577935111}
   m_Layer: 0
-  m_Name: DialogueController
+  m_Name: DialogueManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46219,12 +46228,48 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1577935109}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.2581637, y: -2.2032526, z: -607.39307}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1577935111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577935109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b1b233c56e01c746b4fe307c5224eb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    sentences:
+    - "J\xE1 \xE9 hora de dormir, Ted."
+    - Eu espero que a gente consiga ficar para sempre sonhando...
+    - "Mas eu tenho medo que ele possa nos machucar l\xE1 tamb\xE9m."
+    - "Voc\xEA promete que vai ficar comigo o tempo todo, Ted?"
+    - Por favor! Eu tenho muito medo de ficar sozinha...
+    - Eu queria poder voar para bem longe daqui... Igual um passarinho.
+    - Vamos voar pra bem longe, Ted.
+    - Z.. z.. z...
+--- !u!114 &1577935112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577935109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48b7d0744344439449f367a0e55ac391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueText: {fileID: 106482720}
+  animator: {fileID: 606644598}
 --- !u!1 &1579857877
 GameObject:
   m_ObjectHideFlags: 0
@@ -46238,7 +46283,7 @@ GameObject:
   - component: {fileID: 1579857880}
   - component: {fileID: 1579857879}
   m_Layer: 5
-  m_Name: Button
+  m_Name: NextButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46307,8 +46352,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1365068938}
-        m_MethodName: DialogTriggerNext
+      - m_Target: {fileID: 1577935112}
+        m_MethodName: DisplayNextSentence
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -48448,7 +48493,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1936783202
 PrefabInstance:
