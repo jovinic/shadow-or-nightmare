@@ -11,8 +11,12 @@ public class ReleasedAnimalController : MonoBehaviour
     public float maxHeight;
     private Vector3 nextPosition;
     private Vector3 currentPosition;
+    private SpriteRenderer spriteRenderer;
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.flipX = (Random.value > 0.5f);
+
         currentPosition = transform.position;
         nextPosition = new Vector3(transform.position.x, maxHeight, transform.position.z);
         moveSpeed = Random.Range(minSpeed, maxSpeed);

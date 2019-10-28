@@ -39088,12 +39088,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5cee30e9b57b894c9e3009f1f82d701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  releasedAnimalGenerator: {fileID: 7127877439694666140, guid: aa326ba4f56e3774ab157a1502dd5b47,
+    type: 3}
   animals:
-  - {fileID: 7127877439694666140, guid: aa326ba4f56e3774ab157a1502dd5b47, type: 3}
-  - {fileID: 7127877439694666140, guid: aa326ba4f56e3774ab157a1502dd5b47, type: 3}
-  - {fileID: 7127877439694666140, guid: aa326ba4f56e3774ab157a1502dd5b47, type: 3}
-  - {fileID: 7127877439694666140, guid: aa326ba4f56e3774ab157a1502dd5b47, type: 3}
-  - {fileID: 7127877439694666140, guid: aa326ba4f56e3774ab157a1502dd5b47, type: 3}
+  - BlueBird
+  - BlueBird
+  - BlueBird
+  - BlueBird
+  - BlueBird
   spawnBegin: {fileID: 2076283060}
   spawnEnd: {fileID: 2125550811}
 --- !u!1 &1612336734
@@ -43508,7 +43510,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125550810}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6, y: -3.3000002, z: 0}
+  m_LocalPosition: {x: 6, y: -3, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 833887716}
