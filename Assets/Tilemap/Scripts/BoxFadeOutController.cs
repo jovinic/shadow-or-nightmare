@@ -11,6 +11,6 @@ public class BoxFadeOutController : MonoBehaviour
 
     public void SpawnAnimalsTrigger()
     {
-        //placeholder
+        transform.parent.parent.GetComponent<AnimalSpawnerSetup>().SpawnAnimals();
     }
 }
