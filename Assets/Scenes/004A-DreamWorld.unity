@@ -37944,6 +37944,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1583495021}
     m_Modifications:
+    - target: {fileID: 6397145004283648957, guid: 48599ac75dd450e449715121555e08ee,
+        type: 3}
+      propertyPath: m_Name
+      value: WhiteFlashCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6397145004283648957, guid: 48599ac75dd450e449715121555e08ee,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6397145004283647041, guid: 48599ac75dd450e449715121555e08ee,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -38048,16 +38058,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6397145004283648957, guid: 48599ac75dd450e449715121555e08ee,
-        type: 3}
-      propertyPath: m_Name
-      value: WhiteFlashCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 6397145004283648957, guid: 48599ac75dd450e449715121555e08ee,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6397145004283648958, guid: 48599ac75dd450e449715121555e08ee,
         type: 3}
@@ -39088,16 +39088,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5cee30e9b57b894c9e3009f1f82d701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  releasedAnimalGenerator: {fileID: 7127877439694666140, guid: aa326ba4f56e3774ab157a1502dd5b47,
-    type: 3}
-  animals:
-  - BlueBird
-  - BlueBird
-  - BlueBird
-  - BlueBird
-  - BlueBird
   spawnBegin: {fileID: 2076283060}
   spawnEnd: {fileID: 2125550811}
+  animals:
+  - {fileID: 7127877439694666140, guid: 427f35d180c0436448f0a6323e756d47, type: 3}
+  - {fileID: 7127877439694666140, guid: 3b27dd0e18b33e844b3add1769004803, type: 3}
+  - {fileID: 7127877439694666140, guid: f37cb898f8351cc418669e92b02e0e83, type: 3}
+  - {fileID: 7127877439694666140, guid: aa326ba4f56e3774ab157a1502dd5b47, type: 3}
+  - {fileID: 7127877439694666140, guid: fb26a6175eca05e4bbcb1a7a9c639c63, type: 3}
 --- !u!1 &1612336734
 GameObject:
   m_ObjectHideFlags: 0
@@ -43480,7 +43478,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2076283059}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.5, y: -0.3, z: 0}
+  m_LocalPosition: {x: -2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 833887716}
@@ -43510,7 +43508,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125550810}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.5, y: -0.3, z: 0}
+  m_LocalPosition: {x: 2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 833887716}

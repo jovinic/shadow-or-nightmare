@@ -116,7 +116,7 @@ public class Movement : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonDown("Fire2") && !canThrow)
+        if (Input.GetButtonDown("Fire2") && !canThrow && (playerLevel > 0))
         {
             TBearRetrieve();
         }
@@ -147,7 +147,7 @@ public class Movement : MonoBehaviour
         newTBear = Instantiate(tBear, transform.position, tBear.transform.rotation);
     }
 
-    private void TBearRetrieve()
+    public void TBearRetrieve()
     {
         newTBear = null;
         canThrow = true;

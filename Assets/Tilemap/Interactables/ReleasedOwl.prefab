@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7127877439694666142}
   - component: {fileID: 2248035962738612145}
   m_Layer: 0
-  m_Name: ReleasedAnimal1
+  m_Name: ReleasedOwl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -5064401156898091283, guid: 53210b7cf2a1d0e45afd9a2153328076,
+  m_Sprite: {fileID: -534737813351970170, guid: 13169809f81174b43afd91e21daaa4c8,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -142,6 +142,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bb78221337742c4ebca8e76a6f1b07f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpeed: 3
-  maxSpeed: 4
-  maxHeight: 0
+  animalIdentifier: Owl
