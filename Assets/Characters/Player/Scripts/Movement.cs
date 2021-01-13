@@ -106,14 +106,14 @@ public class Movement : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1") && canThrow && (playerLevel > 0))
         {
-            if(coll.onWall && !coll.onGround)
-            {
-                //workaround to prevent player from climbing out of stage
-            }
-            else
-            {
+            // if(coll.onWall && !coll.onGround)
+            // {
+            //     //workaround to prevent player from climbing out of stage
+            // }
+            // else
+            // {
                 anim.PrepareThrow();
-            }
+            // }
         }
 
         if (Input.GetButtonDown("Fire2") && !canThrow && (playerLevel > 0))
