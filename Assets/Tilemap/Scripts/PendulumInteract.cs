@@ -69,6 +69,7 @@ public class PendulumInteract : MonoBehaviour
 
     public void ActivationAnimTrigger()
     {
+        GetComponent<AudioSource>().Play();
         anim.SetTrigger("Activate");
     }
 }

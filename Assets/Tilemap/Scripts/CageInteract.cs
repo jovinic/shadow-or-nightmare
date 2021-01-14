@@ -36,6 +36,7 @@ public class CageInteract : MonoBehaviour
 
             if(bird.transform.position == destroyableW.transform.position)
             {
+                bird.GetComponent<AudioSource>().Play();
                 destroyableW.GetComponent<Animator>().SetTrigger("Fade");
             }
         }
@@ -50,6 +51,7 @@ public class CageInteract : MonoBehaviour
         {
             if(playerTrigger)
             {
+                GetComponent<AudioSource>().Play();
                 ActivationAnimTrigger();
             }
             else

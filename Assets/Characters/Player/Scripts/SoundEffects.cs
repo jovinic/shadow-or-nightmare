@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SoundEffects : MonoBehaviour
 {
+    public AudioSource slideAudio;
     public AudioSource jumpAudio;
     public AudioSource throwAudio;
     public AudioSource teleportAudio;
@@ -13,6 +14,16 @@ public class SoundEffects : MonoBehaviour
     public void playJumpAudio()
     {
         jumpAudio.Play();
+    }
+
+    public void playSlideAudio()
+    {
+        slideAudio.Play();
+    }
+
+    public void stopSlideAudio()
+    {
+        slideAudio.Stop();
     }
 
     public void playThrowAudio()

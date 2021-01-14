@@ -12,6 +12,7 @@ public class DialogueManager : MonoBehaviour
     public Animator animator;
     public Animator transitionAnim;
     public string nextSceneName;
+    public AudioSource clickAudio;
 
     void Start()
     {
@@ -34,6 +35,8 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
+        clickAudio.Play();
+
         if(sentences.Count == 0)
         {
             EndDialogue();

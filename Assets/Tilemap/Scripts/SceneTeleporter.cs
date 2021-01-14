@@ -26,6 +26,7 @@ public class SceneTeleporter : MonoBehaviour
     {
         if(other.tag == "Player" && activated)
         {
+            GetComponent<AudioSource>().Play();
             StartCoroutine(TeleportToScene(other.gameObject));
         }
     }

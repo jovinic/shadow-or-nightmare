@@ -10,6 +10,7 @@ public class Movement : MonoBehaviour
     public Rigidbody2D rb;
     private RigidbodyConstraints2D playerConstraints;
     private AnimationScript anim;
+    private AudioSource stepSource;
 
     [Space]
     [Header("Stats")]
@@ -24,6 +25,7 @@ public class Movement : MonoBehaviour
     public bool canMove;
     public bool wallJumped;
     public bool wallSlide;
+    private bool isWalking;
 
     [Space]
     private bool groundTouch;
@@ -49,6 +51,7 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerConstraints = rb.constraints;
         anim = GetComponentInChildren<AnimationScript>();
+        stepSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -94,6 +97,27 @@ public class Movement : MonoBehaviour
         if (!coll.onWall || coll.onGround)
             wallSlide = false;
 
+        isWalking = (!coll.onWall && coll.onGround && x != 0) ? true : false;
+
+        if (!stepSource.isPlaying && isWalking)
+        {
+            stepSource.Play(); // Step sounds
+        }
+
+        if (!isWalking)
+        {
+            stepSource.Stop();
+        }
+
+        if(wallSlide)
+        {
+            GetComponent<SoundEffects>().playSlideAudio();
+        }
+        else
+        {
+            GetComponent<SoundEffects>().stopSlideAudio();
+        }
+
         if (Input.GetButtonDown("Jump") && canMove)
         {
             anim.SetTrigger("jump");
@@ -106,14 +130,8 @@ public class Movement : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1") && canThrow && (playerLevel > 0))
         {
-            // if(coll.onWall && !coll.onGround)
-            // {
-            //     //workaround to prevent player from climbing out of stage
-            // }
-            // else
-            // {
-                anim.PrepareThrow();
-            // }
+            anim.PrepareThrow();
+
         }
 
         if (Input.GetButtonDown("Fire2") && !canThrow && (playerLevel > 0))

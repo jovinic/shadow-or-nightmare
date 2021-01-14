@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -45157,6 +45157,16 @@ PrefabInstance:
       propertyPath: transitionAnim
       value: 
       objectReference: {fileID: 1936783203}
+    - target: {fileID: 2319136438119468987, guid: 095b321ef4d3026488aacbe0804f6b2b,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6cea995371dbbb64c881ab5f118183bb, type: 3}
+    - target: {fileID: 2319136438119468987, guid: 095b321ef4d3026488aacbe0804f6b2b,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 095b321ef4d3026488aacbe0804f6b2b, type: 3}
 --- !u!1 &528745222
@@ -48559,6 +48569,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 52803fb45e68ea34d8c597baea931ea3, type: 3}
     - target: {fileID: 8831842139018987319, guid: 92897b33ffbb4bd4881aa524498d97ed,
         type: 3}
       propertyPath: m_Name
@@ -48624,5 +48638,10 @@ PrefabInstance:
       propertyPath: transitionAnim
       value: 
       objectReference: {fileID: 1936783203}
+    - target: {fileID: 9088252923367014112, guid: 92897b33ffbb4bd4881aa524498d97ed,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 52803fb45e68ea34d8c597baea931ea3, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92897b33ffbb4bd4881aa524498d97ed, type: 3}
