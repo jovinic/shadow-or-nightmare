@@ -251,6 +251,7 @@ public class Movement : MonoBehaviour
         rb.velocity = new Vector2(rb.velocity.x, 0);
         rb.velocity += dir * jumpForce;
 
+        GetComponent<SoundEffects>().playJumpAudio();
         particle.Play();
     }
 

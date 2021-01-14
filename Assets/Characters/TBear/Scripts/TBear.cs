@@ -33,6 +33,7 @@ public class TBear : MonoBehaviour
         Throw();
         burstParticle.Play();
         idleParticle.Play();
+        GameObject.FindGameObjectWithTag("Player").GetComponent<SoundEffects>().playThrowAudio();
     }
 
     void Update()
@@ -73,12 +74,15 @@ public class TBear : MonoBehaviour
             Vector3 bearPos = gameObject.GetComponent<Transform>().position;
             GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>().position = new Vector3(bearPos.x, bearPos.y + 0.15f, bearPos.z);
 
+            GameObject.FindGameObjectWithTag("Player").GetComponent<SoundEffects>().playTeleportAudio();
             destroyTBear(true);
             return;
         }
 
         if (Input.GetButtonDown("Fire2"))
         {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<SoundEffects>().playRetrieveAudio();
+
             destroyTBear(true);
             return;
         }
@@ -127,6 +131,8 @@ public class TBear : MonoBehaviour
         // resets timer
         currentTimer = initialTimer * 0.6f;
         availableBounces--;
+
+        GameObject.FindGameObjectWithTag("Player").GetComponent<SoundEffects>().playBounceAudio();
     }
 
     public void FreezeTBear()
