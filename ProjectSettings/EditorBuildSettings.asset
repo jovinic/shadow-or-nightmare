@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/004A-DreamWorld.unity
     guid: 00c7eb1246dd88242b93937b0b007f87
+  - enabled: 1
+    path: Assets/Scenes/004B-Ending.unity
+    guid: 7cdaa318b4adba14d98a2d59f2f7b9cc
   m_configObjects: {}

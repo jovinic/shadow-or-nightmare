@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
+    public bool canBegin = false;
     public Dialogue dialogue;
     private bool dialogueStarted = false;
 
     void Update()
     {
+        if(!canBegin)
+        {
+            return;
+        }
+
         if(dialogueStarted)
         {
             return;

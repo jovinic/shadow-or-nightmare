@@ -9,6 +9,33 @@ public class AnimalSpawnerSetup : MonoBehaviour
     public List<GameObject> animals;
     private int partitionCount;
 
+    [Space]
+    [Header("Endgame Dialogue Related")]
+    public GameObject tutorialInput;
+    private bool dialogueEnabled;
+    public GameObject dialogueManager;
+
+    void Start()
+    {
+        enabled = false;
+    }
+
+    void Update()
+    {
+        float axis = Input.GetAxis ("Vertical");
+        if(axis > 0)
+        {
+            if(dialogueEnabled)
+            {
+                dialogueEnabled = false;
+
+                GameObject backgroundAudio = GameObject.Find("BackgroundAudio");
+                Destroy(backgroundAudio);
+                dialogueManager.GetComponent<DialogueTrigger>().canBegin = true;
+            }
+        }
+    }
+
     public void SpawnAnimals()
     {
         GameObject player = GameObject.FindWithTag("Player");
@@ -37,5 +64,14 @@ public class AnimalSpawnerSetup : MonoBehaviour
 
             partitionCount++;
         }
+
+        Transform boxTransform = transform.Find("box");
+        Vector3 hintPosition = new Vector3(boxTransform.position.x, player.transform.position.y + 1.5f, player.transform.position.z);
+
+        GameObject newTutorialInput = Instantiate(tutorialInput, hintPosition, player.transform.rotation);
+        newTutorialInput.GetComponent<TutorialInput>().buttonAnimTrigger = "Up";
+
+        dialogueEnabled = true;
+        enabled = true;
     }
 }
