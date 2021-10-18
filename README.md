@@ -1,7 +1,7 @@
 # shadow-or-nightmare
 > Shadow or Nightmare
 
-Game made in Unity as term paper.
+Game made in Unity as final graduation project.
 
 ## Term paper abstract
 
