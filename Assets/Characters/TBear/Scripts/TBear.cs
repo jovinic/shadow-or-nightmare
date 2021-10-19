@@ -90,14 +90,10 @@ public class TBear : MonoBehaviour
 
     public void Throw()
     {
-        Vector3 cameraCenter = new Vector3(Screen.width / 2, Screen.height / 2, Camera.main.transform.position.z);
-        cameraCenter = Camera.main.ScreenToWorldPoint(cameraCenter);
-
-        Vector3 throwDir = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - cameraCenter).normalized;
-        throwDir.z = 1f;
-
-        velocity = throwDir * throwPower;
-        bearBody.AddForce(velocity);
+        Vector2 cursorInWorldPos = Camera.main.ScreenToWorldPoint( Input.mousePosition );
+        Vector2 direction = cursorInWorldPos - bearBody.position;
+        direction.Normalize();
+        bearBody.AddForce(direction * throwPower);
     }
 
     void destroyTBear(bool destructor)
