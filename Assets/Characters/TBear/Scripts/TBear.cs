@@ -50,7 +50,7 @@ public class TBear : MonoBehaviour
 
         if(currentTimer <= 0)
         {
-            bearBody.velocity = new Vector2(bearBody.velocity.x - (bearBody.velocity.x * 0.01f), bearBody.velocity.y);
+            // increase gravity effect to add weight to tbear
             bearBody.gravityScale = initialGravity * 2f;
         }
 
@@ -113,16 +113,8 @@ public class TBear : MonoBehaviour
             return;
         }
 
-        bearBody.velocity = Vector2.zero;
-
-        //obtain the surface normal for a point on a collider
-        //and reflects a vector off the plane defined by a normal.
-        Vector2 CollisionNormal = collision.contacts[0].normal;
-        velocity = Vector3.Reflect(velocity, CollisionNormal);
-
-        //apply new direction adding force
-        velocity.Normalize();
-        bearBody.AddForce(velocity * throwPower);
+       // buff force for bounce effect
+       bearBody.AddForce(bearBody.velocity * (throwPower * 0.1f));
 
         // resets timer
         currentTimer = initialTimer * 0.6f;
