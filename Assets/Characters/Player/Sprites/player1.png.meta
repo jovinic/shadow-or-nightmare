@@ -72,7 +72,7 @@ TextureImporter:
       213: -1999538507929542385
     second: player1_22
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -92,6 +92,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -101,8 +103,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -123,9 +125,14 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -153,6 +160,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: 4
@@ -638,6 +657,29 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      player1_0: -4398183398628465896
+      player1_1: 7839784871684049599
+      player1_10: 5681193448538658771
+      player1_11: 2556067887680778913
+      player1_12: -8833008166218025490
+      player1_13: 7769750014258281238
+      player1_14: -5180488722387340039
+      player1_15: -6688495621246355036
+      player1_16: 7369020619667118342
+      player1_17: -8646753142055028412
+      player1_18: -2090964266290527897
+      player1_19: 7199106367365678473
+      player1_2: -2087131801688729284
+      player1_20: -6078534998846284335
+      player1_21: 2120375694697107668
+      player1_3: -8367330479227117672
+      player1_4: 4415216904226883167
+      player1_5: 2516802226072463256
+      player1_6: 440235799827986768
+      player1_7: 2962048942281255309
+      player1_8: -1070265378249208709
+      player1_9: -1658548773986321718
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

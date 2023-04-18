@@ -44,6 +44,7 @@ public class Movement : MonoBehaviour
     public GameObject ownTBear;
     [HideInInspector] public GameObject newTBear;
     public bool canThrow;
+    public float throwDelay = 1;
 
     void Start()
     {
@@ -131,7 +132,6 @@ public class Movement : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && canThrow && (playerLevel > 0))
         {
             anim.PrepareThrow();
-
         }
 
         if (Input.GetButtonDown("Fire2") && !canThrow && (playerLevel > 0))
@@ -211,7 +211,6 @@ public class Movement : MonoBehaviour
             anim.Flip(side);
         }
 
-        StopCoroutine(DisableMovement(0));
         StartCoroutine(DisableMovement(.1f));
 
         Vector2 wallDir = coll.onRightWall ? Vector2.left : Vector2.right;
@@ -318,5 +317,16 @@ public class Movement : MonoBehaviour
         }
 
         anim.Flip(side);
+    }
+
+    public void RegainThrowCapabilities()
+    {
+        StartCoroutine(RegainThrowDelay(throwDelay));
+    }
+
+    IEnumerator RegainThrowDelay(float time)
+    {
+        yield return new WaitForSeconds(time);
+        canThrow = true;
     }
 }

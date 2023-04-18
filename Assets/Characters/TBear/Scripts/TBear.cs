@@ -18,12 +18,14 @@ public class TBear : MonoBehaviour
     private Vector3 velocity;
     private int availableBounces;
     private float currentTimer;
+    private float throwDelay;
 
     private int playerLevel;
 
     void Start()
     {
         bearBody = GetComponent<Rigidbody2D>();
+        throwDelay = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().playerLevel;
         currentTimer = initialTimer;
         initialGravity = bearBody.gravityScale;
 
@@ -75,16 +77,17 @@ public class TBear : MonoBehaviour
             GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>().position = new Vector3(bearPos.x, bearPos.y + 0.15f, bearPos.z);
 
             GameObject.FindGameObjectWithTag("Player").GetComponent<SoundEffects>().playTeleportAudio();
-            destroyTBear(true);
-            return;
+
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().RegainThrowCapabilities();
+            Destroy(gameObject);
         }
 
         if (Input.GetButtonDown("Fire2"))
         {
             GameObject.FindGameObjectWithTag("Player").GetComponent<SoundEffects>().playRetrieveAudio();
 
-            destroyTBear(true);
-            return;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().RegainThrowCapabilities();
+            Destroy(gameObject);
         }
     }
 
@@ -94,16 +97,6 @@ public class TBear : MonoBehaviour
         Vector2 direction = cursorInWorldPos - bearBody.position;
         direction.Normalize();
         bearBody.AddForce(direction * throwPower);
-    }
-
-    void destroyTBear(bool destructor)
-    {
-        if(destructor)
-        {
-            Destroy(gameObject);
-        }
-
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().canThrow = true;
     }
 
     void OnCollisionEnter2D(Collision2D collision)

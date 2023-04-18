@@ -1155,7 +1155,7 @@ TextureImporter:
       213: 21300766
     second: pirate_import_383
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -1175,6 +1175,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -1184,8 +1186,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -1206,9 +1208,14 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -1224,6 +1231,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 1
   - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: 4
@@ -9311,6 +9330,391 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      pirate_import_0: 21300000
+      pirate_import_1: 21300002
+      pirate_import_10: 21300020
+      pirate_import_100: 21300200
+      pirate_import_101: 21300202
+      pirate_import_102: 21300204
+      pirate_import_103: 21300206
+      pirate_import_104: 21300208
+      pirate_import_105: 21300210
+      pirate_import_106: 21300212
+      pirate_import_107: 21300214
+      pirate_import_108: 21300216
+      pirate_import_109: 21300218
+      pirate_import_11: 21300022
+      pirate_import_110: 21300220
+      pirate_import_111: 21300222
+      pirate_import_112: 21300224
+      pirate_import_113: 21300226
+      pirate_import_114: 21300228
+      pirate_import_115: 21300230
+      pirate_import_116: 21300232
+      pirate_import_117: 21300234
+      pirate_import_118: 21300236
+      pirate_import_119: 21300238
+      pirate_import_12: 21300024
+      pirate_import_120: 21300240
+      pirate_import_121: 21300242
+      pirate_import_122: 21300244
+      pirate_import_123: 21300246
+      pirate_import_124: 21300248
+      pirate_import_125: 21300250
+      pirate_import_126: 21300252
+      pirate_import_127: 21300254
+      pirate_import_128: 21300256
+      pirate_import_129: 21300258
+      pirate_import_13: 21300026
+      pirate_import_130: 21300260
+      pirate_import_131: 21300262
+      pirate_import_132: 21300264
+      pirate_import_133: 21300266
+      pirate_import_134: 21300268
+      pirate_import_135: 21300270
+      pirate_import_136: 21300272
+      pirate_import_137: 21300274
+      pirate_import_138: 21300276
+      pirate_import_139: 21300278
+      pirate_import_14: 21300028
+      pirate_import_140: 21300280
+      pirate_import_141: 21300282
+      pirate_import_142: 21300284
+      pirate_import_143: 21300286
+      pirate_import_144: 21300288
+      pirate_import_145: 21300290
+      pirate_import_146: 21300292
+      pirate_import_147: 21300294
+      pirate_import_148: 21300296
+      pirate_import_149: 21300298
+      pirate_import_15: 21300030
+      pirate_import_150: 21300300
+      pirate_import_151: 21300302
+      pirate_import_152: 21300304
+      pirate_import_153: 21300306
+      pirate_import_154: 21300308
+      pirate_import_155: 21300310
+      pirate_import_156: 21300312
+      pirate_import_157: 21300314
+      pirate_import_158: 21300316
+      pirate_import_159: 21300318
+      pirate_import_16: 21300032
+      pirate_import_160: 21300320
+      pirate_import_161: 21300322
+      pirate_import_162: 21300324
+      pirate_import_163: 21300326
+      pirate_import_164: 21300328
+      pirate_import_165: 21300330
+      pirate_import_166: 21300332
+      pirate_import_167: 21300334
+      pirate_import_168: 21300336
+      pirate_import_169: 21300338
+      pirate_import_17: 21300034
+      pirate_import_170: 21300340
+      pirate_import_171: 21300342
+      pirate_import_172: 21300344
+      pirate_import_173: 21300346
+      pirate_import_174: 21300348
+      pirate_import_175: 21300350
+      pirate_import_176: 21300352
+      pirate_import_177: 21300354
+      pirate_import_178: 21300356
+      pirate_import_179: 21300358
+      pirate_import_18: 21300036
+      pirate_import_180: 21300360
+      pirate_import_181: 21300362
+      pirate_import_182: 21300364
+      pirate_import_183: 21300366
+      pirate_import_184: 21300368
+      pirate_import_185: 21300370
+      pirate_import_186: 21300372
+      pirate_import_187: 21300374
+      pirate_import_188: 21300376
+      pirate_import_189: 21300378
+      pirate_import_19: 21300038
+      pirate_import_190: 21300380
+      pirate_import_191: 21300382
+      pirate_import_192: 21300384
+      pirate_import_193: 21300386
+      pirate_import_194: 21300388
+      pirate_import_195: 21300390
+      pirate_import_196: 21300392
+      pirate_import_197: 21300394
+      pirate_import_198: 21300396
+      pirate_import_199: 21300398
+      pirate_import_2: 21300004
+      pirate_import_20: 21300040
+      pirate_import_200: 21300400
+      pirate_import_201: 21300402
+      pirate_import_202: 21300404
+      pirate_import_203: 21300406
+      pirate_import_204: 21300408
+      pirate_import_205: 21300410
+      pirate_import_206: 21300412
+      pirate_import_207: 21300414
+      pirate_import_208: 21300416
+      pirate_import_209: 21300418
+      pirate_import_21: 21300042
+      pirate_import_210: 21300420
+      pirate_import_211: 21300422
+      pirate_import_212: 21300424
+      pirate_import_213: 21300426
+      pirate_import_214: 21300428
+      pirate_import_215: 21300430
+      pirate_import_216: 21300432
+      pirate_import_217: 21300434
+      pirate_import_218: 21300436
+      pirate_import_219: 21300438
+      pirate_import_22: 21300044
+      pirate_import_220: 21300440
+      pirate_import_221: 21300442
+      pirate_import_222: 21300444
+      pirate_import_223: 21300446
+      pirate_import_224: 21300448
+      pirate_import_225: 21300450
+      pirate_import_226: 21300452
+      pirate_import_227: 21300454
+      pirate_import_228: 21300456
+      pirate_import_229: 21300458
+      pirate_import_23: 21300046
+      pirate_import_230: 21300460
+      pirate_import_231: 21300462
+      pirate_import_232: 21300464
+      pirate_import_233: 21300466
+      pirate_import_234: 21300468
+      pirate_import_235: 21300470
+      pirate_import_236: 21300472
+      pirate_import_237: 21300474
+      pirate_import_238: 21300476
+      pirate_import_239: 21300478
+      pirate_import_24: 21300048
+      pirate_import_240: 21300480
+      pirate_import_241: 21300482
+      pirate_import_242: 21300484
+      pirate_import_243: 21300486
+      pirate_import_244: 21300488
+      pirate_import_245: 21300490
+      pirate_import_246: 21300492
+      pirate_import_247: 21300494
+      pirate_import_248: 21300496
+      pirate_import_249: 21300498
+      pirate_import_25: 21300050
+      pirate_import_250: 21300500
+      pirate_import_251: 21300502
+      pirate_import_252: 21300504
+      pirate_import_253: 21300506
+      pirate_import_254: 21300508
+      pirate_import_255: 21300510
+      pirate_import_256: 21300512
+      pirate_import_257: 21300514
+      pirate_import_258: 21300516
+      pirate_import_259: 21300518
+      pirate_import_26: 21300052
+      pirate_import_260: 21300520
+      pirate_import_261: 21300522
+      pirate_import_262: 21300524
+      pirate_import_263: 21300526
+      pirate_import_264: 21300528
+      pirate_import_265: 21300530
+      pirate_import_266: 21300532
+      pirate_import_267: 21300534
+      pirate_import_268: 21300536
+      pirate_import_269: 21300538
+      pirate_import_27: 21300054
+      pirate_import_270: 21300540
+      pirate_import_271: 21300542
+      pirate_import_272: 21300544
+      pirate_import_273: 21300546
+      pirate_import_274: 21300548
+      pirate_import_275: 21300550
+      pirate_import_276: 21300552
+      pirate_import_277: 21300554
+      pirate_import_278: 21300556
+      pirate_import_279: 21300558
+      pirate_import_28: 21300056
+      pirate_import_280: 21300560
+      pirate_import_281: 21300562
+      pirate_import_282: 21300564
+      pirate_import_283: 21300566
+      pirate_import_284: 21300568
+      pirate_import_285: 21300570
+      pirate_import_286: 21300572
+      pirate_import_287: 21300574
+      pirate_import_288: 21300576
+      pirate_import_289: 21300578
+      pirate_import_29: 21300058
+      pirate_import_290: 21300580
+      pirate_import_291: 21300582
+      pirate_import_292: 21300584
+      pirate_import_293: 21300586
+      pirate_import_294: 21300588
+      pirate_import_295: 21300590
+      pirate_import_296: 21300592
+      pirate_import_297: 21300594
+      pirate_import_298: 21300596
+      pirate_import_299: 21300598
+      pirate_import_3: 21300006
+      pirate_import_30: 21300060
+      pirate_import_300: 21300600
+      pirate_import_301: 21300602
+      pirate_import_302: 21300604
+      pirate_import_303: 21300606
+      pirate_import_304: 21300608
+      pirate_import_305: 21300610
+      pirate_import_306: 21300612
+      pirate_import_307: 21300614
+      pirate_import_308: 21300616
+      pirate_import_309: 21300618
+      pirate_import_31: 21300062
+      pirate_import_310: 21300620
+      pirate_import_311: 21300622
+      pirate_import_312: 21300624
+      pirate_import_313: 21300626
+      pirate_import_314: 21300628
+      pirate_import_315: 21300630
+      pirate_import_316: 21300632
+      pirate_import_317: 21300634
+      pirate_import_318: 21300636
+      pirate_import_319: 21300638
+      pirate_import_32: 21300064
+      pirate_import_320: 21300640
+      pirate_import_321: 21300642
+      pirate_import_322: 21300644
+      pirate_import_323: 21300646
+      pirate_import_324: 21300648
+      pirate_import_325: 21300650
+      pirate_import_326: 21300652
+      pirate_import_327: 21300654
+      pirate_import_328: 21300656
+      pirate_import_329: 21300658
+      pirate_import_33: 21300066
+      pirate_import_330: 21300660
+      pirate_import_331: 21300662
+      pirate_import_332: 21300664
+      pirate_import_333: 21300666
+      pirate_import_334: 21300668
+      pirate_import_335: 21300670
+      pirate_import_336: 21300672
+      pirate_import_337: 21300674
+      pirate_import_338: 21300676
+      pirate_import_339: 21300678
+      pirate_import_34: 21300068
+      pirate_import_340: 21300680
+      pirate_import_341: 21300682
+      pirate_import_342: 21300684
+      pirate_import_343: 21300686
+      pirate_import_344: 21300688
+      pirate_import_345: 21300690
+      pirate_import_346: 21300692
+      pirate_import_347: 21300694
+      pirate_import_348: 21300696
+      pirate_import_349: 21300698
+      pirate_import_35: 21300070
+      pirate_import_350: 21300700
+      pirate_import_351: 21300702
+      pirate_import_352: 21300704
+      pirate_import_353: 21300706
+      pirate_import_354: 21300708
+      pirate_import_355: 21300710
+      pirate_import_356: 21300712
+      pirate_import_357: 21300714
+      pirate_import_358: 21300716
+      pirate_import_359: 21300718
+      pirate_import_36: 21300072
+      pirate_import_360: 21300720
+      pirate_import_361: 21300722
+      pirate_import_362: 21300724
+      pirate_import_363: 21300726
+      pirate_import_364: 21300728
+      pirate_import_365: 21300730
+      pirate_import_366: 21300732
+      pirate_import_367: 21300734
+      pirate_import_368: 21300736
+      pirate_import_369: 21300738
+      pirate_import_37: 21300074
+      pirate_import_370: 21300740
+      pirate_import_371: 21300742
+      pirate_import_372: 21300744
+      pirate_import_373: 21300746
+      pirate_import_374: 21300748
+      pirate_import_375: 21300750
+      pirate_import_376: 21300752
+      pirate_import_377: 21300754
+      pirate_import_378: 21300756
+      pirate_import_379: 21300758
+      pirate_import_38: 21300076
+      pirate_import_380: 21300760
+      pirate_import_381: 21300762
+      pirate_import_382: 21300764
+      pirate_import_383: 21300766
+      pirate_import_39: 21300078
+      pirate_import_4: 21300008
+      pirate_import_40: 21300080
+      pirate_import_41: 21300082
+      pirate_import_42: 21300084
+      pirate_import_43: 21300086
+      pirate_import_44: 21300088
+      pirate_import_45: 21300090
+      pirate_import_46: 21300092
+      pirate_import_47: 21300094
+      pirate_import_48: 21300096
+      pirate_import_49: 21300098
+      pirate_import_5: 21300010
+      pirate_import_50: 21300100
+      pirate_import_51: 21300102
+      pirate_import_52: 21300104
+      pirate_import_53: 21300106
+      pirate_import_54: 21300108
+      pirate_import_55: 21300110
+      pirate_import_56: 21300112
+      pirate_import_57: 21300114
+      pirate_import_58: 21300116
+      pirate_import_59: 21300118
+      pirate_import_6: 21300012
+      pirate_import_60: 21300120
+      pirate_import_61: 21300122
+      pirate_import_62: 21300124
+      pirate_import_63: 21300126
+      pirate_import_64: 21300128
+      pirate_import_65: 21300130
+      pirate_import_66: 21300132
+      pirate_import_67: 21300134
+      pirate_import_68: 21300136
+      pirate_import_69: 21300138
+      pirate_import_7: 21300014
+      pirate_import_70: 21300140
+      pirate_import_71: 21300142
+      pirate_import_72: 21300144
+      pirate_import_73: 21300146
+      pirate_import_74: 21300148
+      pirate_import_75: 21300150
+      pirate_import_76: 21300152
+      pirate_import_77: 21300154
+      pirate_import_78: 21300156
+      pirate_import_79: 21300158
+      pirate_import_8: 21300016
+      pirate_import_80: 21300160
+      pirate_import_81: 21300162
+      pirate_import_82: 21300164
+      pirate_import_83: 21300166
+      pirate_import_84: 21300168
+      pirate_import_85: 21300170
+      pirate_import_86: 21300172
+      pirate_import_87: 21300174
+      pirate_import_88: 21300176
+      pirate_import_89: 21300178
+      pirate_import_9: 21300018
+      pirate_import_90: 21300180
+      pirate_import_91: 21300182
+      pirate_import_92: 21300184
+      pirate_import_93: 21300186
+      pirate_import_94: 21300188
+      pirate_import_95: 21300190
+      pirate_import_96: 21300192
+      pirate_import_97: 21300194
+      pirate_import_98: 21300196
+      pirate_import_99: 21300198
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
