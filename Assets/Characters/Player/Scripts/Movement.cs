@@ -134,11 +134,6 @@ public class Movement : MonoBehaviour
             anim.PrepareThrow();
         }
 
-        if (Input.GetButtonDown("Fire2") && !canThrow && (playerLevel > 0))
-        {
-            TBearRetrieve();
-        }
-
         if (coll.onGround && !groundTouch)
         {
             GroundTouch();
@@ -163,12 +158,6 @@ public class Movement : MonoBehaviour
         canThrow = false;
 
         newTBear = Instantiate(tBear, transform.position, tBear.transform.rotation);
-    }
-
-    public void TBearRetrieve()
-    {
-        newTBear = null;
-        canThrow = true;
     }
 
     public void TeleportPlayer(Transform destination)

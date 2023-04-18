@@ -86,7 +86,7 @@ public class TBear : MonoBehaviour
         {
             GameObject.FindGameObjectWithTag("Player").GetComponent<SoundEffects>().playRetrieveAudio();
 
-            GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().RegainThrowCapabilities();
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().canThrow = true;
             Destroy(gameObject);
         }
     }

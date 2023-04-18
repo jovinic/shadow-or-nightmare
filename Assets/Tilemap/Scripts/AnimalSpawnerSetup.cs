@@ -44,7 +44,6 @@ public class AnimalSpawnerSetup : MonoBehaviour
         if(activatedTBear != null)
         {
             Destroy(activatedTBear);
-            player.GetComponent<Movement>().TBearRetrieve();
         }
 
         player.GetComponent<Movement>().canThrow = false;
